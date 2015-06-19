@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pronostico: MyString
+  deporte: MyString
+  cuota: 1.5
+  categoria: MyString
+  evento: MyString
+  stake: 1.5
+  explicacion: MyText
+
+two:
+  pronostico: MyString
+  deporte: MyString
+  cuota: 1.5
+  categoria: MyString
+  evento: MyString
+  stake: 1.5
+  explicacion: MyText

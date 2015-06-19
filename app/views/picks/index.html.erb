@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>PICKADOS - Inicio</title>
+    <!--<link href="/views/css/bootstrap.min.css" rel="stylesheet">-->
+        <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <script src="js/picks.js"></script>
+</head>
+<body>
+
+
+<img src="img/logopickados.jpg">
+<ul class="nav nav-tabs">
+    <li class="active"><a href="/web/index.html">Inicio</a></li>
+    <li><a href="/web/picks_bb.html">Mis picks</a></li>
+    <li><a id="enlacemispicks" href="/web/mispicks.html">Estadísticas</a></li>
+  <li><a id="enlacemispicks" href="/web/mispicks.html">Ranking</a></li>
+  <li><a id="enlacemispicks" href="/web/mispicks.html">Tipsters PRO</a></li>
+  <li><a id="enlacemispicks" href="/web/mispicks.html">Perfil</a></li>
+</ul>
+
+<div class="container-fluid">
+<div class="row">
+    <div class="col-sm-3"><div class="container">
+        <div class="content">
+            <div class="row">
+                <div id="formlogin" class="login-form">
+                    <h2>Inicia Sesión</h2>
+                    <form action="">
+                        <fieldset>
+                            <div class="clearfix">
+                                <input id="loginusername" type="text" placeholder="Username">
+                            </div>
+                            <div class="clearfix">
+                                <input id="loginpassword" type="password" placeholder="Password">
+                            </div>
+                            <input type="button" onclick="login()" class="btn primary" value="Login" />
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div id="logon" class="row">Bienvenido, </div><br><div id="botonlogout" class="row"><input type="button" onclick="logout()" value="Cerrar sesión"/></div>
+        </div>
+    </div> <!-- /container --></div>
+    <div class="col-sm-6" id="picks_todos"><br />
+    <h1>Todos los picks</h1>
+ <div style="text-align:center"><%= link_to 'New pick', new_pick_path, :class => "btn btn-success"  %></div>
+<table>
+  <tr>
+    <th>Evento</th>
+    <th>Pronostico</th>
+  </tr>
+ 
+  <% @pick.each do |pick| %>
+    <tr>
+      <td><%= pick.evento %></td>
+      <td><%= pick.pronostico %></td>
+       <td><%= link_to ' Mostrar ', pick_path(pick), :class => "btn btn-info" %></td>
+      <td><%= link_to ' Editar ', edit_pick_path(pick), :class => "btn btn-primary" %></td>
+      <td><%= link_to ' Borrar ', pick_path(pick), :class => "btn btn-danger",
+              method: :delete,
+              data: { confirm: '¿Estás seguro?' } %></td>
+    </tr>
+  <% end %>
+</table></div>
+    <div class="col-sm-3 panel panel-success"><h2>Columna derecha</h2></div>
+</div>
+</div>
+
+
+
+
+</body>
+</html>
