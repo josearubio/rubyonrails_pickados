@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'signup' => 'users#new'
+
   get 'welcome/index'
 	
 	get 'inicio/index'
+
 	
 resources :picks
   # The priority is based upon order of creation: first created -> highest priority.

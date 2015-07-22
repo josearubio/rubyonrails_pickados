@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt (3.1.10-x86-mingw32)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
     bootstrap_form (2.3.0)
@@ -112,6 +113,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  bcrypt (~> 3.1.2)
   bootstrap-sass (= 3.2.0.0)
   bootstrap_form
   coffee-rails (~> 4.0.0)
