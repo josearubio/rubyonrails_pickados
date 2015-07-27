@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         message  = "Account not activated. "
         message += "Check your email for the activation link."
         flash[:warning] = message
-        redirect_to attr_reader :oot_url
+        redirect_to root_url
       end
     else
       flash.now[:danger] = "Logueo incorrecto !"
