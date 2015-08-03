@@ -1,19 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  pronostico: MyString
-  deporte: MyString
+  pronostico: +2.5 goles
+  deporte: Futbol
   cuota: 1.5
-  categoria: MyString
-  evento: MyString
-  stake: 1.5
-  explicacion: MyText
+  categoria: Liga BBVA
+  evento: Elche - Madrid
+  stake: 2
+  explicacion: Madrid viene en una racha impresionante y el Elche es el equipo más goleado.
+  created_at: <%= 2.hours.ago %>
 
 two:
-  pronostico: MyString
-  deporte: MyString
-  cuota: 1.5
-  categoria: MyString
-  evento: MyString
-  stake: 1.5
-  explicacion: MyText
+  pronostico: Gana Vettel
+  deporte: Formula 1
+  cuota: 5
+  categoria: Campeonato del Mundo
+  evento: GP MONACO
+  stake: 2
+  explicacion: Mercedes sigue dominando pero mañana Vettel sale segundo y se pronóstica lluvia, todo puede pasar.
+  created_at: <%= 10.minutes.ago %>
