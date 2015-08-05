@@ -1,4 +1,6 @@
 class PicksController < ApplicationController
+  before_action :logged_in_user, only: [:create, :destroy]
+
 	def index
     @pick = Pick.all
   	end
@@ -17,10 +19,12 @@ class PicksController < ApplicationController
 
 	def create
 	#render plain: params[:pick].inspect
-	@pick = Pick.new(pick_params)
+  @pick = current_user.picks.build(pick_params)
+	#@pick = Pick.new(pick_params)
  
 	  	if @pick.save
-	  	redirect_to @pick
+        flash[:success] = "Pick creado correctamente!"
+        redirect_to root_url
 	  else
 	  	render 'new'	
 	  end
