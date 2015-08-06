@@ -1,13 +1,9 @@
 class PicksController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
-
+  before_action :correct_user,   only: :destroy
 	def index
     @pick = Pick.all
   	end
-
-	 def show
-    @pick = Pick.find(params[:id])
- 	 end
 
 	def new
 	@pick = Pick.new
@@ -43,12 +39,17 @@ class PicksController < ApplicationController
  	def destroy
 	 @pick= Pick.find(params[:id])
 	  @pick.destroy
-	 
-	  redirect_to picks_path
+   flash[:success] = "Pick borrado!"
+	  redirect_to root_url
 	end
 
 	private
 	  def pick_params
 	    params.require(:pick).permit(:evento, :pronostico,:cuota,:deporte,:categoria,:stake)
-	  end
+    end
+
+  def correct_user
+    @pick = current_user.picks.find_by(id: params[:id])
+    redirect_to root_url if @pick.nil?
+  end
 end

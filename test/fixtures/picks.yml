@@ -20,7 +20,7 @@ two:
   stake: 2
   explicacion: Mercedes sigue dominando pero mañana Vettel sale segundo y se pronóstica lluvia, todo puede pasar.
   created_at: <%= 10.minutes.ago %>
-  user: prueba
+  user: segundo
 
 <% 30.times do |n| %>
 pick_<%= n %>:
