@@ -5,3 +5,26 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.create!(name:  "Example User",
+             email: "example@railstutorial.org",
+             password:              "foobar",
+             password_confirmation: "foobar",
+activated: true,
+             activated_at: Time.zone.now)
+
+10.times do |n|
+  name  = Faker::Name.name[5..15]
+  email = "example-#{n+1}@railstutorial.org"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password)
+end
+
+users = User.order(:created_at).take(6)
+27.times do
+  evento = "Prueba-Prueba"
+  pronostico= "Gana Prueba"
+  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico) }
+end
