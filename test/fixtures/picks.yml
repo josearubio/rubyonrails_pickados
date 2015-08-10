@@ -29,3 +29,11 @@ pick_<%= n %>:
   created_at: <%= 42.days.ago %>
   user: prueba
 <% end %>
+
+<% 30.times do |n| %>
+pick_<%= n %>:
+  evento: Tercero - Madrid
+  pronostico: +2.5 goles
+  created_at: <%= 42.days.ago %>
+  user: tercero
+<% end %>

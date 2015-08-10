@@ -28,3 +28,11 @@ users = User.order(:created_at).take(6)
   pronostico= "Gana Prueba"
   users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico) }
 end
+
+# Following relationships
+users = User.all
+user  = users.first
+following = users[2..7]
+followers = users[3..10]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
