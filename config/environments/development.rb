@@ -1,4 +1,5 @@
 Rails.application.configure do
+  require 'tlsmail'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -14,11 +15,42 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
+=begin
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :test
+=end
+  Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
   host = 'localhost:3000'
   config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
 
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "localhost:3000",
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: "jaromuse@gmail.com",
+      password: "jaromusee123"
+  }
+
+
+=begin
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => "587",
+      :domain => "localhost:3000",
+      :enable_starttls_auto => true,
+      :authentication => 'plain',
+      :user_name => "jaromuse@gmail.com",
+      :password => "jaromusee123"
+  }
+=end
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
