@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'mispicks' => 'static_pages#mispicks'
+
+  get 'faq' => 'static_pages#faq'
+
+  get 'contacto' => 'static_pages#contacto'
+
   get 'password_resets/edit'
 
   get 'password_resets/new'
