@@ -3,7 +3,7 @@ require 'test_helper'
 class PickTest < ActiveSupport::TestCase
   def setup
     @user = users(:prueba)
-    # This code is not idiomatically correct.
+
     @pick = @user.picks.build(evento: "Madrid-Barcelona",pronostico: "Gana Barcelona")
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
@@ -37,11 +37,21 @@ class PickTest < ActiveSupport::TestCase
     assert_equal picks(:two), Pick.first
   end
 
-  test "associated microposts should be destroyed" do
+  test "associated picks should be destroyed" do
     @user.save
     @user.picks.create!(evento: "Madrid-Barcelona",pronostico: "Gana Barcelona")
     assert_difference 'Pick.count', -1 do
       @user.destroy
     end
+  end
+
+  test "status unstarted by default" do
+    assert_equal 'unstarted',@pick.status
+    @pick.setstarted
+    assert_equal 'started',@pick.status
+    result = 'hola'
+    @pick.setticked(result)
+
+    assert_equal 'ticked',@pick.status
   end
 end
