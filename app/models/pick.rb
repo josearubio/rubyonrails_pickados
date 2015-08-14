@@ -10,5 +10,6 @@ class Pick < ActiveRecord::Base
   end
   def setticked(result)
     update_attribute(:status,'ticked')
+    update_attribute(:result, 'ok')
   end
 end

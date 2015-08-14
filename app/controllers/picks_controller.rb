@@ -43,7 +43,19 @@ class PicksController < ApplicationController
 	  redirect_to root_url
 	end
 
-	private
+  def verdear
+    @pick=Pick.find(params[:id])
+    @pick.setticked('prueba')
+    respond_to do |format|
+      format.html { redirect_to current_user }
+      format.js {
+        render :template => 'picks/tick.js.erb'
+      }
+
+    end
+  end
+
+  private
 	  def pick_params
 	    params.require(:pick).permit(:evento, :pronostico,:cuota,:deporte,:categoria,:stake)
     end
