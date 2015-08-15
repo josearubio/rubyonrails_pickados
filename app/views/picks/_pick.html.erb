@@ -8,11 +8,13 @@
   </span>
   <span class="buttons">
     <% if ownpick?(pick) %>
-    <%= link_to "Verdear", tick_pick_path(:id => pick.id ), remote: true%>
+         <div id="tick_<%= pick.id %>" class="muestra">PRUEBA
+    <%= link_to "Verdear", tick_pick_path(:id => pick.id ), remote: true, class: "ticktick"%>
+         </div>
         <% if pick.result=='ok' %>
             OK OK OK
         <% end %>
-        <div id="tick_<%= pick.id %>">PRUEBA</div>
+
         | <%= link_to "Eliminar pick", pick, method: :delete, class: "btn btn-danger",
                       data: { confirm: "Estás seguro de borrar el pick?" } %>
     <% end %>
