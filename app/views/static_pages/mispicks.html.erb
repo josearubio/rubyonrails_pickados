@@ -1,6 +1,6 @@
 <% if logged_in? %>
     <div class="row">
-      <aside class="col-md-4">
+      <aside class="col-md-3">
         <section class="user_info">
           <%= render 'shared/user_info' %>
         </section>
@@ -11,11 +11,14 @@
           <%= link_to "Publicar pick", new_pick_path, class: "btn btn-lg btn-primary" %>
         </section>
       </aside>
-      <div class="col-md-8">
-        <h3>Todos los picks</h3>
+      <div class="col-md-9">
+        <h3>Mis picks</h3>
+        <div class="panel panel-default">
+          <div class="panel-body">
         <ol class="picks">
           <%= render @picks %>
         </ol>
+            </div></div>
         <%= will_paginate @picks %>
 
       </div>

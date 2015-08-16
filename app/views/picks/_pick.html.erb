@@ -1,9 +1,29 @@
 <li id="pick-<%= pick.id %>">
   <%= link_to gravatar_for(pick.user, size: 50), pick.user %>
   <span class="user"><%= link_to pick.user.name, pick.user %></span>
-  <span class="content"><%= pick.evento %>-<%= pick.pronostico %><br>Cuota:<%= pick.cuota %><br>Stake:<%= pick.stake %>  </span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(pick.created_at) %> ago.
+  <div class="row">
+    <div class="col-md-5">
 
+      <span class="content"><b><%= pick.evento %></b> (<%= pick.categoria %>)<br>
+        <br><%= pick.pronostico %><br>Cuota:<%= pick.cuota %>
+    ~ Stake:<%= pick.stake %>  </span>
+    </div>
+    <div class="col-md-1">    <%= image_tag ""+pick.deporte+".png", :alt => "share", :title => "share" , :size=> "20"%>
+    </div>
+    <div class="col-md-4"><% if ownpick?(pick) %><% if pick.status!='ticked' %>
+          <div id="tick_<%= pick.id %>" class="muestra">Marcar como:<br>
+            <%= link_to "Verde", tick_pick_path(:id => pick.id, :result => "ok" ), remote: true, class: "btn btn-verde tickando"%>
+            <%= link_to "Rojo", tick_pick_path(:id => pick.id, :result => "fail" ), remote: true, class: "btn btn-rojo tickando"%>
+            <%= link_to "Anulada", tick_pick_path(:id => pick.id, :result => "null" ), remote: true, class: "btn btn-azul tickando"%>
+          </div>
+          <% end %>
+                <br>
+          <%= link_to "Eliminar pick", pick, method: :delete, class: "btn btn-danger",
+                        data: { confirm: "Estás seguro de borrar el pick?" } %>
+      <% end %></div>
+  </div>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(pick.created_at) %> ago. <%= image_tag "share-icon.png", :alt => "share", :title => "share" , :size=> "16"%>
   </span>
+
 </li>

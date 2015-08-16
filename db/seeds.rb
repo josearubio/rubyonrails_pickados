@@ -24,9 +24,13 @@ end
 
 users = User.order(:created_at).take(6)
 27.times do
-  evento = "Prueba-Prueba"
-  pronostico= "Gana Prueba"
-  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico) }
+  evento = "Barcelona-Elche"
+  pronostico= "Gana Barcelona"
+  deporte= "futbol"
+  categoria= "Liga BBVA"
+  cuota=1.30
+  stake=10
+  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria) }
 end
 
 # Following relationships

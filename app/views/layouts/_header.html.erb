@@ -1,10 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
 <div class="container">
-  <%= link_to "sample app", root_path, id: "logo" %>
+
+
   <nav>
+    <%= image_tag "logo3.png", :alt => "share", :title => "share",:width=>"150",:height=>"66"%>
     <ul class="nav navbar-nav navbar-right">
       <% if logged_in? %>
-          <li><%= link_to "Mis Picks", mispicks_path %></li>
+          <li><%= link_to "Mis Picks", mispicks_path(id: current_user) %></li>
           <li><%= link_to "Picks PRO", '#' %></li>
           <li><%= link_to "Rankings", '#' %></li>
           <li><%= link_to "Usuarios", '#' %></li>
