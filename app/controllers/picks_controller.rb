@@ -43,9 +43,9 @@ class PicksController < ApplicationController
 	  redirect_to root_url
 	end
 
-  def verdear
+  def tickar
     @pick=Pick.find(params[:id])
-    @pick.setticked('prueba')
+    @pick.setticked(params[:result])
     respond_to do |format|
       format.html { redirect_to current_user }
       format.js {

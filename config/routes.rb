@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'mispicks' => 'static_pages#mispicks'
+  get 'mispicks/:id' => 'static_pages#mispicks', as: :mispicks
 
   get 'faq' => 'static_pages#faq'
 
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 	
 	get 'inicio/index'
 
-  get 'picks/:id/tick' => 'picks#verdear', as: :tick_pick
+  get 'picks/:id/tick/:result' => 'picks#tickar', as: :tick_pick
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

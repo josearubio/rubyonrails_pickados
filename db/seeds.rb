@@ -26,7 +26,7 @@ users = User.order(:created_at).take(6)
 27.times do
   evento = "Barcelona-Elche"
   pronostico= "Gana Barcelona"
-  deporte= "Fútbol"
+  deporte= "futbol"
   categoria= "Liga BBVA"
   cuota=1.30
   stake=10
