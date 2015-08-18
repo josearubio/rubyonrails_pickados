@@ -1,8 +1,13 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionController::TestCase
+
+  def setup
+    @user = users(:prueba)
+  end
+
   test "should get mispicks" do
-    get :mispicks
+    get :mispicks, id: @user
     assert_response :success
   end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813205801) do
+ActiveRecord::Schema.define(version: 20150817165112) do
 
   create_table "picks", force: true do |t|
     t.string   "pronostico"
@@ -41,6 +41,23 @@ ActiveRecord::Schema.define(version: 20150813205801) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
+  create_table "stats", force: true do |t|
+    t.float    "acierto",    default: 0.0
+    t.float    "yield",      default: 0.0
+    t.integer  "acertadas",  default: 0
+    t.integer  "falladas",   default: 0
+    t.integer  "anuladas",   default: 0
+    t.integer  "totalpicks", default: 0
+    t.float    "profit",     default: 0.0
+    t.float    "stakeavg",   default: 0.0
+    t.float    "cuotaavg",   default: 0.0
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stats", ["user_id"], name: "index_stats_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

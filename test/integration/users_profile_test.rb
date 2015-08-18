@@ -5,6 +5,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:prueba)
+    log_in_as(@user, remember_me: '1')
   end
 
   test "profile display" do

@@ -8,7 +8,7 @@
         <br><%= pick.pronostico %><br>Cuota:<%= pick.cuota %>
     ~ Stake:<%= pick.stake %>  </span>
     </div>
-    <div class="col-md-1">    <%= image_tag ""+pick.deporte+".png", :alt => "share", :title => "share" , :size=> "20"%>
+    <div class="col-md-1">    <%= image_tag ""+pick.deporte.to_s+".png", :alt => "share", :title => "share" , :size=> "20"%>
     </div>
     <div class="col-md-4"><% if ownpick?(pick) %><% if pick.status!='ticked' %>
           <div id="tick_<%= pick.id %>" class="muestra">Marcar como:<br>
