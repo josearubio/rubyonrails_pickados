@@ -8,10 +8,10 @@ one:
   anuladas: 1
   totalpicks: 1
   profit: 1.5
-  stakeavg: 1.5
+  totalstaked: 5
   cuotaavg: 1.5
   created_at: <%= 10.minutes.ago %>
-  user: prueba
+  user: segundo
 
 two:
   acierto: 1.5
@@ -21,6 +21,6 @@ two:
   anuladas: 1
   totalpicks: 1
   profit: 1.5
-  stakeavg: 1.5
+  totalstaked: 5
   cuotaavg: 1.5
   created_at: <%= 10.minutes.ago %>

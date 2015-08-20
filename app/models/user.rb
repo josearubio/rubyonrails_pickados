@@ -116,14 +116,14 @@ class User < ActiveRecord::Base
 
   #Crea estadistica mensual si aún no existe
   def create_stat_if_not(date)
-    Stat.where("created_at BETWEEN ? AND ?", date.beginning_of_month, date.end_of_month)
-    #Stat.where('created_at >= :five_days_ago',:five_days_ago  => Time.now - 5.days)
-    #Stat.where("created_at = :yearr", yearr: "2015-08-18 16:54:36".to_time)
-    #Stat.where(:created_at => "2015-08-18 17:09:30")
-    #Stat.where("acierto = ?", 1.5)
-    #Stat.find(:all, :conditions => ["strftime('%m', created_at) = ? and strftime('%Y', created_at) = ?",, Date.today.year])
-    #Stat.where(strftime('%m', created_at) => date.month).all
-    #Stat.all
+    @stat=Stat.where("user_id = ? and created_at BETWEEN ? AND ?", id, date.beginning_of_month, date.end_of_month)
+    if @stat.empty?
+      @stat= self.stats.build
+      @stat.save
+      @stat
+    else
+      @stat.first
+    end
   end
 
 

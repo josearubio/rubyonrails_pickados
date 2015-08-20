@@ -43,15 +43,16 @@ ActiveRecord::Schema.define(version: 20150817165112) do
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "stats", force: true do |t|
-    t.float    "acierto",    default: 0.0
-    t.float    "yield",      default: 0.0
-    t.integer  "acertadas",  default: 0
-    t.integer  "falladas",   default: 0
-    t.integer  "anuladas",   default: 0
-    t.integer  "totalpicks", default: 0
-    t.float    "profit",     default: 0.0
-    t.float    "stakeavg",   default: 0.0
-    t.float    "cuotaavg",   default: 0.0
+    t.float    "acierto",     default: 0.0
+    t.float    "yield",       default: 0.0
+    t.integer  "acertadas",   default: 0
+    t.integer  "falladas",    default: 0
+    t.integer  "anuladas",    default: 0
+    t.integer  "totalpicks",  default: 0
+    t.float    "profit",      default: 0.0
+    t.float    "totalstaked", default: 0.0
+    t.float    "cuotaavg",    default: 0.0
+    t.float    "totalcuota",  default: 0.0
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

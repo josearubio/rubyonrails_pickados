@@ -14,7 +14,7 @@
           <div id="tick_<%= pick.id %>" class="muestra">Marcar como:<br>
             <%= link_to "Verde", tick_pick_path(:id => pick.id, :result => "ok" ), remote: true, class: "btn btn-verde tickando"%>
             <%= link_to "Rojo", tick_pick_path(:id => pick.id, :result => "fail" ), remote: true, class: "btn btn-rojo tickando"%>
-            <%= link_to "Anulada", tick_pick_path(:id => pick.id, :result => "null" ), remote: true, class: "btn btn-azul tickando"%>
+            <%= link_to "Anulada", tick_pick_path(:id => pick.id, :result => "nula" ), remote: true, class: "btn btn-azul tickando"%>
           </div>
           <% end %>
                 <br>

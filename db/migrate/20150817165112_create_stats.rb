@@ -8,8 +8,9 @@ class CreateStats < ActiveRecord::Migration
       t.integer :anuladas, default: 0
       t.integer :totalpicks, default: 0
       t.float :profit, default: 0
-      t.float :stakeavg, default: 0
+      t.float :totalstaked, default: 0
       t.float :cuotaavg, default: 0
+      t.float :totalcuota, default: 0
       t.references :user, index: true, foreign_key: true
 
       t.timestamps
