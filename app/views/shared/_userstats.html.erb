@@ -4,7 +4,7 @@
   Acertadas: <b><span style="color:#39c95c"><%= @user.stats.last.acertadas%></span></b>
   Falladas: <b><span style="color:#c93b36"><%= @user.stats.last.falladas%></span></b>
   Anuladas: <b><span style="color:#5064c9"><%= @user.stats.last.anuladas%></span></b>
-  Cuota media:<br><b> <%= @user.stats.last.cuotaavg%></b><br>
+  Cuota media:<br><b> @<%= @user.stats.last.cuotaavg.round(2)%></b><br>
   Beneficio: <br><b><% if @user.stats.last.profit>=0%>
       <span style="color:#39c95c">+<%= @user.stats.last.profit%> uds.</span>
        <%else %>
@@ -13,7 +13,7 @@
   Yield:<br><b> <% if @user.stats.last.yield>=0%>
       <span style="color:#39c95c">+<%= @user.stats.last.yield%>%</span>
   <%else %>
-      <span style="color:#c93b36"><%= @user.stats.last.yield%>%</span>
+      <span style="color:#c93b36"><%= @user.stats.last.yield.round(2)%>%</span>
   <%end%></b><br>
 
 </div>
