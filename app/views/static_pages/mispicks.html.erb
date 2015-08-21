@@ -10,6 +10,19 @@
         <section class="newpick_form">
           <%= link_to "Publicar pick", new_pick_path, class: "btn btn-lg btn-primary" %>
         </section>
+        <section class="userstats">
+          <div class="panel panel-default">
+
+            <div class="panel-heading">
+              <h3 class="panel-title">Mis Estadísticas Mensuales</h3>
+            </div>
+            <div class="panel-body">
+              <% if current_user.stats.any? %>
+                  <%= render 'shared/userstats' %>
+              <% end %>
+            </div></div>
+
+        </section>
       </aside>
       <div class="col-md-9">
         <h3>Mis picks</h3>

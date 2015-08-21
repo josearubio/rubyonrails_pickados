@@ -8,13 +8,16 @@
         <br><%= pick.pronostico %><br>Cuota:<%= pick.cuota %>
     ~ Stake:<%= pick.stake %>  </span>
     </div>
-    <div class="col-md-1">    <%= image_tag ""+pick.deporte+".png", :alt => "share", :title => "share" , :size=> "20"%>
+    <div class="col-md-1">    <%= image_tag ""+pick.deporte.to_s+".png", :alt => "share", :title => "share" , :size=> "20"%>
     </div>
     <div class="col-md-4"><% if ownpick?(pick) %><% if pick.status!='ticked' %>
           <div id="tick_<%= pick.id %>" class="muestra">Marcar como:<br>
-            <%= link_to "Verde", tick_pick_path(:id => pick.id, :result => "ok" ), remote: true, class: "btn btn-verde tickando"%>
-            <%= link_to "Rojo", tick_pick_path(:id => pick.id, :result => "fail" ), remote: true, class: "btn btn-rojo tickando"%>
-            <%= link_to "Anulada", tick_pick_path(:id => pick.id, :result => "null" ), remote: true, class: "btn btn-azul tickando"%>
+            <%= link_to "Verde", tick_pick_path(:id => pick.id, :result => "ok" ), remote: true, class: "btn btn-verde tickando",
+                        data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
+            <%= link_to "Rojo", tick_pick_path(:id => pick.id, :result => "fail" ), remote: true, class: "btn btn-rojo tickando",
+                        data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
+            <%= link_to "Anulada", tick_pick_path(:id => pick.id, :result => "nula" ), remote: true, class: "btn btn-azul tickando",
+                        data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
           </div>
           <% end %>
                 <br>

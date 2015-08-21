@@ -10,6 +10,20 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section>
+
+    <section class="userstats">
+      <div class="panel panel-default">
+
+          <div class="panel-heading">
+            <h3 class="panel-title">Estadísticas <%= @user.stats.last.created_at.strftime("%B del %Y")%></h3>
+          </div>
+        <div class="panel-body">
+          <% if @user.stats.any? %>
+              <%= render 'shared/userstats' %>
+          <% end %>
+        </div></div>
+
+    </section>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>

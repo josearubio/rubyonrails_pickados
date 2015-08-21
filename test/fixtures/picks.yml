@@ -9,6 +9,21 @@ one:
   stake: 2
   explicacion: Madrid viene en una racha impresionante y el Elche es el equipo más goleado.
   created_at: <%= 2.hours.ago %>
+  status: ticked
+  result: ok
+  user: prueba
+
+onea:
+  pronostico: +2.5 goles
+  deporte: Futbol
+  cuota: 1.5
+  categoria: Liga BBVA
+  evento: Elche - Madrid
+  stake: 2
+  explicacion: Madrid viene en una racha impresionante y el Elche es el equipo más goleado.
+  created_at: <%= 2.hours.ago %>
+  status: ticked
+  result: fail
   user: prueba
 
 two:
@@ -24,8 +39,14 @@ two:
 
 <% 30.times do |n| %>
 pick_<%= n %>:
+  pronostico: +2.5 goles
+  deporte: Futbol
+  cuota: 1.5
+  categoria: Liga BBVA
   evento: Elche - Madrid
   pronostico: +2.5 goles
+  stake: 2
+  explicacion: Madrid viene en una racha impresionante y el Elche es el equipo más goleado.
   created_at: <%= 42.days.ago %>
   user: prueba
 <% end %>
@@ -33,6 +54,7 @@ pick_<%= n %>:
 <% 30.times do |n| %>
 pick_<%= n %>:
   evento: Tercero - Madrid
+  deporte: Futbol
   pronostico: +2.5 goles
   created_at: <%= 42.days.ago %>
   user: tercero

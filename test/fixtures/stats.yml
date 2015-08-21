@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  acierto: 1.5
+  yield: 1.5
+  acertadas: 1
+  falladas: 1
+  anuladas: 1
+  totalpicks: 1
+  profit: 1.5
+  totalstaked: 5
+  cuotaavg: 1.5
+  created_at: <%= 10.minutes.ago %>
+  user: segundo
+
+two:
+  acierto: 1.5
+  yield: 1.5
+  acertadas: 1
+  falladas: 1
+  anuladas: 1
+  totalpicks: 1
+  profit: 1.5
+  totalstaked: 5
+  cuotaavg: 1.5
+  created_at: <%= 10.minutes.ago %>

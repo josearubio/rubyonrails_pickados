@@ -46,6 +46,7 @@ class PicksController < ApplicationController
   def tickar
     @pick=Pick.find(params[:id])
     @pick.setticked(params[:result])
+    @pick.addonstats
     respond_to do |format|
       format.html { redirect_to current_user }
       format.js {

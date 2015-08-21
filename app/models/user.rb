@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :picks, dependent: :destroy
+  has_many :stats, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
            foreign_key: "follower_id",
            dependent:   :destroy
@@ -111,6 +112,18 @@ class User < ActiveRecord::Base
                      WHERE  follower_id = :user_id"
     Pick.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
+  end
+
+  #Crea estadistica mensual si aún no existe
+  def create_stat_if_not(date)
+    @stat=Stat.where("user_id = ? and created_at BETWEEN ? AND ?", id, date.beginning_of_month, date.end_of_month)
+    if @stat.empty?
+      @stat= self.stats.build
+      @stat.save
+      @stat
+    else
+      @stat.first
+    end
   end
 
 
