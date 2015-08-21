@@ -14,7 +14,8 @@
           <div class="panel panel-default">
 
             <div class="panel-heading">
-              <h3 class="panel-title">Mis Estadísticas Mensuales</h3>
+              <h3 class="panel-title"><span class="glyphicon glyphicon-stats"></span> Estadísticas
+                <span class="glyphicon glyphicon-calendar"></span> <%= l(current_user.stats.last.created_at, format: :mesano)%></h3>
             </div>
             <div class="panel-body">
               <% if current_user.stats.any? %>
