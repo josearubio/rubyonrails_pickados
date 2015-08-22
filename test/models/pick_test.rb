@@ -4,13 +4,14 @@ class PickTest < ActiveSupport::TestCase
   def setup
     @user = users(:prueba)
 
-    @pick = @user.picks.build(evento: "Madrid-Barcelona",pronostico: "Gana Barcelona")
+    @pick = @user.picks.build(evento: "Madrid-Barcelona",pronostico: "Gana Barcelona",pickdate:"2015-08-31 20:00")
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
   end
 
-  test "should be valid" do
+  test "should be valid and date" do
     assert @pick.valid?
+    assert "Agosto", @pick.pickdate.strftime("%B")
   end
 
   test "user id should be present" do
