@@ -28,10 +28,14 @@
         </section>
       </aside>
       <div class="col-md-8">
-            <h3>Todos los picks</h3>
+        <div class="panel panel-default">
+
+          <div class="panel-heading">
+            <h3>Todos los picks</h3></div>
             <ol class="picks">
               <%= render @picks %>
             </ol>
+          </div>
             <%= will_paginate @picks %>
 
       </div>

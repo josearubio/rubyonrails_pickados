@@ -214,7 +214,7 @@ es:
     am: am
     formats:
       default: "%A, %d de %B de %Y %H:%M:%S %z"
-      long: "%d de %B de %Y %H:%M"
+      long: "%d de %B de %Y a las %H:%M"
       short: "%d de %b %H:%M"
       mesano: "%B/%Y"
     pm: pm

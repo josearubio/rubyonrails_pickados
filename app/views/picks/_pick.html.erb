@@ -5,25 +5,37 @@
     <div class="col-md-5">
 
       <span class="content"><b><%= pick.evento %></b> (<%= pick.categoria %>)<br>
+        <% if pick.pickdate.presence %><%= l(pick.pickdate, format: :long)%><% end%>
         <br><%= pick.pronostico %><br>Cuota:<%= pick.cuota %>
     ~ Stake:<%= pick.stake %>  </span>
+
     </div>
     <div class="col-md-1">    <%= image_tag ""+pick.deporte.to_s+".png", :alt => "share", :title => "share" , :size=> "20"%>
     </div>
-    <div class="col-md-4"><% if ownpick?(pick) %><% if pick.status!='ticked' %>
-          <div id="tick_<%= pick.id %>" class="muestra">Marcar como:<br>
-            <%= link_to "Verde", tick_pick_path(:id => pick.id, :result => "ok" ), remote: true, class: "btn btn-verde tickando",
+    <div class="col-md-4">
+      <div id="tick_<%= pick.id %>" class="muestra">
+      <% if ownpick?(pick) %>
+            <% if pick.status!='ticked' %>
+            Marcar como:<br>
+            <%= link_to "Verde", tick_pick_path(:id => pick.id, :result => "ok" ), remote: true, class: "btn btn-verde tickandoverde",
                         data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
-            <%= link_to "Rojo", tick_pick_path(:id => pick.id, :result => "fail" ), remote: true, class: "btn btn-rojo tickando",
+            <%= link_to "Rojo", tick_pick_path(:id => pick.id, :result => "fail" ), remote: true, class: "btn btn-rojo tickandorojo",
                         data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
-            <%= link_to "Anulada", tick_pick_path(:id => pick.id, :result => "nula" ), remote: true, class: "btn btn-azul tickando",
+            <%= link_to "Anulada", tick_pick_path(:id => pick.id, :result => "nula" ), remote: true, class: "btn btn-azul tickandoazul",
                         data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
-          </div>
+
+                <br><br><%= link_to "Eliminar pick", pick, method: :delete, class: "btn btn-danger",
+                            data: { confirm: "Estás seguro de borrar el pick?" } %>
+
+          <% elsif pick.status=='ticked' && pick.result=='nula' %> <span style='color:#5064c9'>Anulada</span>
+          <% elsif pick.status=='ticked' && pick.result=='fail' %> <span style='color:#c93b36'>Fallada</span>
+          <% elsif pick.status=='ticked' && pick.result=='ok' %> <span style='color:#39c95c'>Acertada</span>
+                <%else%> <%= pick.result %> <%= pick.status %>
           <% end %>
+
                 <br>
-          <%= link_to "Eliminar pick", pick, method: :delete, class: "btn btn-danger",
-                        data: { confirm: "Estás seguro de borrar el pick?" } %>
-      <% end %></div>
+
+      <% end %></div></div>
   </div>
   <span class="timestamp">
     Hace <%= time_ago_in_words(pick.created_at) %>. <%= image_tag "share-icon.png", :alt => "share", :title => "share" , :size=> "16"%>

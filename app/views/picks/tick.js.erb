@@ -2,8 +2,20 @@
     var target = $(this); // Find where is the destination
     $(target).html('HOLAAAA');
 });**/
-$('.tickando').bind('ajax:success', function(event) {
+$('.tickandoazul').bind('ajax:success', function(event) {
     var clicked_div = $(this).parent(".muestra");
-  clicked_div.html("probado");
+  clicked_div.html("<span style='color:#5064c9'>Anulada</span>");
+
+});
+
+$('.tickandoverde').bind('ajax:success', function(event) {
+    var clicked_div = $(this).parent(".muestra");
+    clicked_div.html("<span style='color:#39c95c'>Acertada</span>");
+
+});
+
+$('.tickandorojo').bind('ajax:success', function(event) {
+    var clicked_div = $(this).parent(".muestra");
+    clicked_div.html("<span style='color:#c93b36'>Fallada</span>");
 
 });

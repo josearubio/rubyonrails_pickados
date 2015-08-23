@@ -58,7 +58,7 @@ class PicksController < ApplicationController
 
   private
 	  def pick_params
-	    params.require(:pick).permit(:evento, :pronostico,:cuota,:deporte,:categoria,:stake)
+	    params.require(:pick).permit(:evento, :pronostico,:cuota,:deporte,:categoria,:stake,:pickdate)
     end
 
   def correct_user
