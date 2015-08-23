@@ -11,6 +11,7 @@
           <%= link_to " Publicar pick", new_pick_path, class: "btn btn-lg btn-primary" %>
         </section>
         <section class="userstats">
+          <% if current_user.stats.any? %>
           <div class="panel panel-default">
 
             <div class="panel-heading">
@@ -18,11 +19,11 @@
                 <span class="glyphicon glyphicon-calendar"></span> <%= l(current_user.stats.last.created_at, format: :mesano)%></h3>
             </div>
             <div class="panel-body">
-              <% if current_user.stats.any? %>
-                  <%= render 'shared/userstats' %>
-              <% end %>
-            </div></div>
 
+                  <%= render 'shared/userstats' %>
+
+            </div></div>
+              <% end %>
         </section>
       </aside>
       <div class="col-md-9">

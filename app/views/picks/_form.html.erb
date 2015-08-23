@@ -19,11 +19,11 @@
    <br>
     <%= f.text_field :evento, placeholder: "Ej: Chelsea - Arsenal"  %>
     <%= f.text_area :pronostico, placeholder: "Ej: Gana Chelsea / + de 2.5 goles"   %>
-    <%= f.text_field :cuota, placeholder: "Ej: Chelsea - Arsenal"  %>
-    <%= f.text_field :deporte, placeholder: "Ej: Chelsea - Arsenal"  %>
-    <%= f.text_field :categoria, placeholder: "Ej: Chelsea - Arsenal"  %>
-    <%= f.text_field :stake, placeholder: "Ej: Chelsea - Arsenal"  %>
-    <%= f.datetime_select :pickdate %>
+    <%= f.text_field :cuota, placeholder: "Ej: @2.25"  %>
+    <%= f.select :deporte, options_for_select(["futbol", "tenis", "baloncesto", "F1","balonmano","galgos"])%>
+    <%= f.text_field :categoria, placeholder: "Ej: Premier League"  %>
+    <%= f.text_field :stake, placeholder: "Ej: 5 (min=0, max=10"  %>
+    <%= f.datetime_select :pickdate, label: "Fecha pick", start_year: 2015, end_year: 2015%>
 
  
   <p>
