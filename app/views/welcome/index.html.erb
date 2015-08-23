@@ -1,4 +1,6 @@
+
 <% if logged_in? %>
+    <div class="container"><br><br><br>
     <div class="row">
       <aside class="col-md-4">
         <section class="user_info">
@@ -33,6 +35,7 @@
             <%= will_paginate @picks %>
 
       </div>
+    </div>
     </div>
 <% else %>
     <div class="intro-header">
