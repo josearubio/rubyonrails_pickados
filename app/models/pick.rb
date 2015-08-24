@@ -4,6 +4,11 @@ class Pick < ActiveRecord::Base
   validates :user_id, presence: true
 	validates :evento, presence: true ,length: { maximum: 75 }
 	validates :pronostico, presence: true
+  validates :categoria, presence: true
+  validates :deporte, presence: true
+  validates :cuota, presence: true
+  validates :stake, presence: true
+  validates :pickdate, presence: true
 
   def setstarted
     update_attribute(:status,'started')

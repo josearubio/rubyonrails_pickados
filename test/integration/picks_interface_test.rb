@@ -16,14 +16,13 @@ class PicksInterfaceTest < ActionDispatch::IntegrationTest
     end
     assert_select 'div#error_explanation'
     # Valid submission
-    evento = "Nadal-Nole"
-    pronostico = "Gana Nadal"
     assert_difference 'Pick.count', 1 do
-      post picks_path, pick: { evento: evento, pronostico: pronostico }
+      post picks_path, pick: { evento: "Madrid-Barcelona",pronostico: "Gana Barcelona",categoria: "LIGA", deporte:"futbol",
+                               cuota: 2, stake: 3, pickdate:"2015-08-31 20:00" }
     end
     assert_redirected_to root_url
     follow_redirect!
-    assert_match evento, response.body
+    assert_match "Madrid-Barcelona", response.body
     # Delete a post.
     #assert_select 'a', text: 'delete'
     first_pick = @user.picks.paginate(page: 1).first
