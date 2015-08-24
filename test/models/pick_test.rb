@@ -4,7 +4,8 @@ class PickTest < ActiveSupport::TestCase
   def setup
     @user = users(:prueba)
 
-    @pick = @user.picks.build(evento: "Madrid-Barcelona",pronostico: "Gana Barcelona",pickdate:"2015-08-31 20:00")
+    @pick = @user.picks.build(evento: "Madrid-Barcelona",pronostico: "Gana Barcelona",categoria: "LIGA", deporte:"futbol",
+                              cuota: 2, stake: 3, pickdate:"2015-08-31 20:00")
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
   end
@@ -40,7 +41,8 @@ class PickTest < ActiveSupport::TestCase
 
   test "associated picks should be destroyed" do
     @user.save
-    @user.picks.create!(evento: "Madrid-Barcelona",pronostico: "Gana Barcelona")
+    @user.picks.create!(evento: "Madrid-Barcelona",pronostico: "Gana Barcelona",categoria: "LIGA", deporte:"futbol",
+                        cuota: 2, stake: 3, pickdate:"2015-08-31 20:00")
     assert_difference 'Pick.count', -1 do
       @user.destroy
     end

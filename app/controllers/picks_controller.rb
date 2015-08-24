@@ -17,13 +17,17 @@ class PicksController < ApplicationController
 	#render plain: params[:pick].inspect
   @pick = current_user.picks.build(pick_params)
 	#@pick = Pick.new(pick_params)
- 
+ if @pick.pickdate > Time.now+9*60
 	  	if @pick.save
         flash[:success] = "Pick creado correctamente!"
         redirect_to root_url
 	  else
 	  	render 'new'	
-	  end
+      end
+ else
+   flash[:danger] = "El evento del pick debe jugarse a partir de 10 minutos en adelante"
+   render 'new'
+   end
 	end
 
 	def update
