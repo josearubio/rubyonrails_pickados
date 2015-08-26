@@ -8,7 +8,7 @@
         <% if pick.pickdate.presence %><%= l(pick.pickdate, format: :long)%><% end%>
         <br><%= pick.pronostico %><br>Cuota:<%= pick.cuota %>
     ~ Stake:<%= pick.stake %>  </span>
-
+      <%= image_tag ""+pick.deporte.to_s+".png", :alt => "share", :title => "share" , :size=> "20"%>
     </div>
     <div class="col-md-1">    <%= image_tag ""+pick.deporte.to_s+".png", :alt => "share", :title => "share" , :size=> "20"%>
     </div>
