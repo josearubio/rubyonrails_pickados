@@ -30,9 +30,42 @@ users = User.order(:created_at).take(6)
   categoria= "Liga BBVA"
   cuota=1.30
   stake=10
-  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria) }
+  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria,
+  pickdate: "2015-08-30 22:00:00".to_time) }
 end
 
+users[1].stats.create!( acierto: 66,
+yield: 33,
+acertadas: 20,
+falladas: 5,
+anuladas: 5,
+totalpicks: 30,
+profit: 10,
+totalstaked: 30,
+cuotaavg: 2,
+created_at: "2015-08-10 10:30:14".to_time)
+
+users[2].stats.create!( acierto: 50,
+                        yield: 0,
+                        acertadas: 20,
+                        falladas: 20,
+                        anuladas: 0,
+                        totalpicks: 40,
+                        profit: 0,
+                        totalstaked: 80,
+                        cuotaavg: 2,
+                        created_at: "2015-08-10 10:30:14".to_time)
+
+users[3].stats.create!( acierto: 60,
+                        yield: 15,
+                        acertadas: 19,
+                        falladas: 7,
+                        anuladas: 4,
+                        totalpicks: 30,
+                        profit: 4,
+                        totalstaked: 60,
+                        cuotaavg: 2,
+                        created_at: "2015-08-10 10:30:14".to_time)
 # Following relationships
 users = User.all
 user  = users.first
