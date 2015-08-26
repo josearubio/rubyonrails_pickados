@@ -374,6 +374,17 @@ fieldset[disabled] .btn-azul.active {
 }
 
 
+.navbar-inverse .navbar-nav > li > a {
+  color: #e3fcea;
+
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #39c95c;
+
+}
+
+
 .intro-header {
   padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
   padding-bottom: 50px;
