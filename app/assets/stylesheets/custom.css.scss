@@ -384,6 +384,16 @@ fieldset[disabled] .btn-azul.active {
 
 }
 
+.puestos{
+  color: #05F283;
+  font-size: 35pt;
+}
+
+.puestosseg{
+  color: #05F283;
+  font-size: 35pt;
+}
+
 .fondooscuro {
   background-color: #101010;
 }
@@ -411,6 +421,10 @@ fieldset[disabled] .btn-azul.active {
   margin: 0;
   text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
   font-size: 5em;
+}
+.titulorank > h1 {
+
+  color:#ffffff;
 }
 
 .intro-divider {

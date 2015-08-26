@@ -1,16 +1,23 @@
 <div class="fondooscuro">
 <br><br><br><br>
-  <div class="bannerranking">
-    <h1>HOLAAA</h1>
+  <div class="bannerranking" style="text-align:center">
+    <%= image_tag "rankingbanner.png", :alt => "share", :title => "share",:width=>"300",:height=>"132" %>
   </div>
-<div class="row">
+  <div class="titulorank" style="text-align:center">
+    <hr class="intro-divider">
+    <h1>Los mejores de <%= l(Time.now, format: :mesano)%></h1>
+    <hr class="intro-divider">
+  </div>
+<div class="row" style="text-align:center">
   <div class="col-md-1">PRU</div>
-  <div class="col-md-2">PRUEBA</div>
-  <div class="col-md-2">PRUEBA</div>
-  <div class="col-md-2">PRUEBA</div>
-  <div class="col-md-2">PRUEBA</div>
-  <div class="col-md-2">PRUEBA</div>
-  <div class="col-md-1">PRU</div>
+  <div class="col-md-2"><span class="puestos">1º</span></div>
+  <div class="col-md-2"><span class="puestosseg">2º</span></div>
+  <div class="col-md-2"><span class="puestosseg">3º</span></div>
+  <div class="col-md-2"><span class="puestos">4º</span></div>
+  <div class="col-md-2"><span class="puestos">5º</span></div>
+  <div class="col-md-1"></div>
+  </div>
+  <div class="row">
   <div class="col-md-1">PRU</div>
   <% @ranks.each do |rank| %>
 
@@ -40,5 +47,5 @@
         </div></div>
           </div></div>
       <% end %>
-</div>
+</div><br><br><br><br><br><br><br><br><br><br>
 </div>
