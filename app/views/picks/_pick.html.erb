@@ -23,9 +23,10 @@
                         data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
             <%= link_to "Anulada", tick_pick_path(:id => pick.id, :result => "nula" ), remote: true, class: "btn btn-azul tickandoazul",
                         data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
-
+            <% if isOnTime(pick)%>
                 <br><br><%= link_to "Eliminar pick", pick, method: :delete, class: "btn btn-danger",
                             data: { confirm: "Estás seguro de borrar el pick?" } %>
+                <% end %>
 
           <% elsif pick.status=='ticked' && pick.result=='nula' %> <span style='color:#5064c9'>Anulada</span>
           <% elsif pick.status=='ticked' && pick.result=='fail' %> <span style='color:#c93b36'>Fallada</span>
