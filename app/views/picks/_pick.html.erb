@@ -1,11 +1,15 @@
-<li id="pick-<%= pick.id %>">
+<li class="marginleftpick" id="pick-<%= pick.id %>">
   <%= link_to gravatar_for(pick.user, size: 50), pick.user %>
   <span class="user"><%= link_to pick.user.name, pick.user %></span>
   <div class="row">
     <div class="col-md-5">
-
+      <%#<%= l(pick.pickdate, format: :long)%>
       <span class="content"><b><%= pick.evento %></b> (<%= pick.categoria %>)<br>
-        <% if pick.pickdate.presence %><%= l(pick.pickdate, format: :long)%><% end%>
+        <% if pick.pickdate.presence %><% if pick.pickdate <= Time.now %>
+                EMPEZADO
+                <% else %>Empieza en: <%= distance_of_time_in_words_to_now(pick.pickdate) %>
+                <% end%>
+        <% end%>
         <br><%= pick.pronostico %><br>Cuota:<%= pick.cuota %>
     ~ Stake:<%= pick.stake %>  </span>
     </div>

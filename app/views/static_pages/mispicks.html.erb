@@ -1,14 +1,16 @@
-<div class="container"><br><br><br>
+<div class="container">
 <% if logged_in? %>
 
-    <div class="row">
+    <div class="row margintop">
       <aside class="col-md-3">
+        <div class="panel panel-default">
+          <div class="panel-body">
         <section class="user_info">
           <%= render 'shared/user_info' %>
         </section>
         <section class="stats">
           <%= render 'shared/stats' %>
-        </section>
+        </section></div></div>
         <section class="newpick_form">
           <%= link_to " Publicar pick", new_pick_path, class: "btn btn-lg btn-primary" %>
         </section>
@@ -29,7 +31,6 @@
         </section>
       </aside>
       <div class="col-md-9">
-        <h3>Mis picks</h3>
         <div class="panel panel-default">
           <div class="panel-body">
         <ol class="picks">
