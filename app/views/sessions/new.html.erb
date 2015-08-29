@@ -1,10 +1,14 @@
 <% provide(:title, "Log in") %>
-<div class="container"><br><br><br>
-<h1>Iniciar sesión</h1>
+<div class="container">
 
-<div class="row">
+
+<div class="row margintop">
   <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
     <%= form_for(:session, url: login_path) do |f| %>
+Log in
+            <hr>
 
         <%= f.label :email %>
         <%= f.email_field :email, class: 'form-control' %>
@@ -18,9 +22,10 @@
             <span>Recuérdame en este ordenador</span>
         <% end %>
 
-        <%= f.submit "Log in", class: "btn btn-primary" %>
+        <%= f.submit "Log in", class: "btn btn-primary btnlogin" %>
     <% end %>
 
     <p>Nuevo usuario? <%= link_to "Regístrate ahora!", signup_path %></p>
+        </div></div>
   </div>
 </div></div>

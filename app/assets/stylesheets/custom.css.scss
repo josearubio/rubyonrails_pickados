@@ -4,7 +4,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  //background-color: #f5f5f5;
+  background: url(fondogris.jpg) no-repeat center center;
 
+}
 
 table {
   border-collapse: separate;
@@ -384,6 +388,23 @@ fieldset[disabled] .btn-azul.active {
 
 }
 
+.puestos{
+  color: #05F283;
+  font-size: 35pt;
+}
+
+.puestosseg{
+  color: #05F283;
+  font-size: 35pt;
+}
+
+.fondooscuro {
+  background-color: #101010;
+}
+
+.bannerranking {
+}
+
 
 .intro-header {
   padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
@@ -404,6 +425,10 @@ fieldset[disabled] .btn-azul.active {
   margin: 0;
   text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
   font-size: 5em;
+}
+.titulorank > h1 {
+
+  color:#ffffff;
 }
 
 .intro-divider {
@@ -484,11 +509,21 @@ fieldset[disabled] .btn-azul.active {
   background: url(banner-bg1.jpg) no-repeat center center;
   background-size: cover;
 }
-
+.btnlogin {
+  max-width: 65px;
+}
 .banner h2 {
   margin: 0;
   text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
   font-size: 3em;
+}
+
+.margintop {
+  margin-top: 100px;
+}
+
+.margintopb {
+  margin-top: 50px;
 }
 
 .banner ul {
@@ -518,6 +553,7 @@ fieldset[disabled] .btn-azul.active {
     display: block;
     margin-bottom: 20px;
     padding: 0;
+
   }
 
   ul.banner-social-buttons > li:last-child {
@@ -526,8 +562,21 @@ fieldset[disabled] .btn-azul.active {
 }
 
 footer {
-  padding: 50px 0;
+  padding: 0px 0;
   background-color: #e0e0e0;
+
+}
+
+.fondogris {
+  background: url(fondogris.jpg) no-repeat center center;
+}
+
+.marginleftpick {
+  margin-left: 10px;
+}
+
+.marginleftpick:hover {
+  background-color: #d3e6ec;
 }
 
 p.copyright {

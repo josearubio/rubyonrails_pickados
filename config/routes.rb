@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'ranking/index', as: :ranking
+
   get 'stats/index'
 
   get 'mispicks/:id' => 'static_pages#mispicks', as: :mispicks
