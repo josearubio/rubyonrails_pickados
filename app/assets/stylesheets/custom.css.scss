@@ -229,6 +229,7 @@ span.picture {
   color: #FFFFFF;
   background-color: #7FE886;
   border-color: #77FC9A;
+  height: 30px;
 }
 
 .btn-verde:hover,
@@ -276,6 +277,7 @@ fieldset[disabled] .btn-verde.active {
   color: #FFFFFF;
   background-color: #E87F7F;
   border-color: #FFCFCF;
+  height: 30px;
 }
 
 .btn-rojo:hover,
@@ -323,6 +325,7 @@ fieldset[disabled] .btn-rojo.active {
   color: #FFFFFF;
   background-color: #384661;
   border-color: #8894B3;
+  height: 30px;
 }
 
 .btn-azul:hover,
@@ -563,12 +566,12 @@ fieldset[disabled] .btn-azul.active {
 
 footer {
   padding: 0px 0;
-  background-color: #e0e0e0;
+  //background-color: #e0e0e0;
 
 }
 
 .fondogris {
-  background: url(fondogris.jpg) no-repeat center center;
+  background: url(fondogris.jpg) center center;
 }
 
 .marginleftpick {
@@ -576,7 +579,7 @@ footer {
 }
 
 .marginleftpick:hover {
-  background-color: #d3e6ec;
+  background-color: #dfe9ec;
 }
 
 p.copyright {
@@ -633,5 +636,5 @@ fieldset[disabled] .btn-registro.active {
 
 .fondoweb {
 
-  background-color: #e0e0e0;
+ //background-color: #e0e0e0;
 }

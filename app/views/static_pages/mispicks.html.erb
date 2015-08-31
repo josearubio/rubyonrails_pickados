@@ -1,8 +1,8 @@
-<div class="container">
-<% if logged_in? %>
 
+<% if logged_in? %>
+    <div class="container fondogris">
     <div class="row margintop">
-      <aside class="col-md-3">
+      <aside class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-body">
         <section class="user_info">
@@ -30,7 +30,7 @@
               <% end %>
         </section>
       </aside>
-      <div class="col-md-9">
+      <div class="col-md-8">
         <div class="panel panel-default">
           <div class="panel-body">
         <ol class="picks">
@@ -40,6 +40,5 @@
         <%= will_paginate @picks %>
 
       </div>
-    </div>
+    </div></div>
 <% end %>
-</div>

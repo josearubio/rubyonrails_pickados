@@ -51,7 +51,8 @@ class PicksController < ApplicationController
 	  @pick.destroy
    flash[:success] = "Pick borrado!"
 	  redirect_to root_url
-	end
+  end
+
 
   def tickar
     @pick=Pick.find(params[:id])
