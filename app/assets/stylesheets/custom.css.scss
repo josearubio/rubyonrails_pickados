@@ -638,3 +638,51 @@ fieldset[disabled] .btn-registro.active {
 
  //background-color: #e0e0e0;
 }
+
+
+
+.btn-filtro {
+  color: #7AC773;
+  background-color: #FFFFFF;
+  border-color: #7AC773;
+}
+
+.btn-filtro:hover,
+.btn-filtro:focus,
+.btn-filtro:active,
+.btn-filtro.active,
+.open .dropdown-toggle.btn-filtro {
+  color: #7AC773;
+  background-color: #FAFAFA;
+  border-color: #7AC773;
+}
+
+.btn-filtro:active,
+.btn-filtro.active,
+.open .dropdown-toggle.btn-filtro {
+  background-image: none;
+}
+
+.btn-filtro.disabled,
+.btn-filtro[disabled],
+fieldset[disabled] .btn-filtro,
+.btn-filtro.disabled:hover,
+.btn-filtro[disabled]:hover,
+fieldset[disabled] .btn-filtro:hover,
+.btn-filtro.disabled:focus,
+.btn-filtro[disabled]:focus,
+fieldset[disabled] .btn-filtro:focus,
+.btn-filtro.disabled:active,
+.btn-filtro[disabled]:active,
+fieldset[disabled] .btn-filtro:active,
+.btn-filtro.disabled.active,
+.btn-filtro[disabled].active,
+fieldset[disabled] .btn-filtro.active {
+  background-color: #FFFFFF;
+  border-color: #7AC773;
+}
+
+.btn-filtro .badge {
+  color: #FFFFFF;
+  background-color: #7AC773;
+}
