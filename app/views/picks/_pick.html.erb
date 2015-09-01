@@ -3,11 +3,11 @@
   <span class="user"><%= link_to pick.user.name, pick.user %></span>
   <div class="row">
     <div class="col-md-5">
-      <%#<%= l(pick.pickdate, format: :long)%>
-      <span class="content"><b><%= pick.evento %></b><br> (<%= pick.categoria %>)<br>
+      <%#<%= l(pick.pickdate, format: :long)%><b><%= pick.pronostico %></b><br>Cuota: <b>@<%= pick.cuota %></b>
+      | STK: <%= pick.stake %><hr class="pequeno">
+      En: <%= pick.evento %><br> (<%= pick.categoria %>)<br>
 
-        <br><%= pick.pronostico %><br>Cuota: @<%= pick.cuota %>
-     | STK: <%= pick.stake %>  </span>
+
     </div>
     <div class="col-md-3" >    <%= image_tag ""+pick.deporte.to_s+".png", :alt => "share", :title => "share" , :size=> "20"%><br><br>
       <% if pick.pickdate.presence %><% if pick.pickdate <= Time.now %>
@@ -30,8 +30,8 @@
 
 
           <% elsif pick.status=='ticked' && pick.result=='nula' %> <span style='color:#5064c9'><b>Anulada</b></span>
-          <% elsif pick.status=='ticked' && pick.result=='fail' %> <span style='color:#c93b36'><b>Fallada</b></span>
-          <% elsif pick.status=='ticked' && pick.result=='ok' %> <span style='color:#39c95c'><b>Acertada</b></span>
+          <% elsif pick.status=='ticked' && pick.result=='fail' %> <span style='color:#c93b36'><b>Fallada</b><br>-<%=pick.stake%> uds.</span>
+          <% elsif pick.status=='ticked' && pick.result=='ok' %> <span style='color:#39c95c'><b>Acertada</b><br>+<%=pick.stake*pick.cuota-pick.stake%> uds.</span>
                 <%else%> <%= pick.result %> <%= pick.status %>
           <% end %>
 

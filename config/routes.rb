@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
   get 'ranking/index', as: :ranking
 
-  get 'welcome/index/:sport' => 'welcome#index', as: :pickbysport
+  get 'welcome/index/:sport/:all' => 'welcome#index', as: :pickbysport
 
   get 'stats/index'
 
   get 'mispicks/:id' => 'static_pages#mispicks', as: :mispicks
+  get 'mispicks/:id/:sport' => 'static_pages#mispicks', as: :mispicksbysport
 
+  get 'users/:id/:sport' => 'users#show', as: :userpicksbysport
   get 'faq' => 'static_pages#faq'
 
   get 'contacto' => 'static_pages#contacto'

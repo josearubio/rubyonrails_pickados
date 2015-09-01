@@ -4,18 +4,18 @@
 });**/
 $('.tickandoazul').bind('ajax:success', function(event) {
     var clicked_div = $(this).parent(".muestra");
-  clicked_div.html("<span style='color:#5064c9'>Anulada</span>");
+  clicked_div.html("<span style='color:#5064c9'><b>Anulada</b></span>");
 
 });
 
 $('.tickandoverde').bind('ajax:success', function(event) {
     var clicked_div = $(this).parent(".muestra");
-    clicked_div.html("<span style='color:#39c95c'>Acertada</span>");
+    clicked_div.html("<span style='color:#39c95c'><b>Acertada</b></span>");
 
 });
 
 $('.tickandorojo').bind('ajax:success', function(event) {
     var clicked_div = $(this).parent(".muestra");
-    clicked_div.html("<span style='color:#c93b36'>Fallada</span>");
+    clicked_div.html("<span style='color:#c93b36'><b>Fallada</b></span>");
 
 });

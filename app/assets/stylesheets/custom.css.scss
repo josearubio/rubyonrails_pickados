@@ -27,6 +27,12 @@ table {
 
 }
 
+.pequeno {
+  margin-top:0px;
+  margin-bottom:0px;
+  border-top:1px solid #B9D0B9;
+}
+
 .fondocesped{
   background: url(prueba.jpg) no-repeat center center;
   background-size: cover;
@@ -685,4 +691,8 @@ fieldset[disabled] .btn-filtro.active {
 .btn-filtro .badge {
   color: #FFFFFF;
   background-color: #7AC773;
+}
+
+.dropdown {
+  display: inline;
 }
