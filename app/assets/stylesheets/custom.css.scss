@@ -86,6 +86,11 @@ aside {
   }
 }
 
+.panel-default {
+  border-color: #048f4e;
+  border-left-width: 5px;
+
+}
 .gravatar {
   float: left;
   margin-right: 10px;
@@ -695,4 +700,51 @@ fieldset[disabled] .btn-filtro.active {
 
 .dropdown {
   display: inline;
+}
+
+
+.btn-mispicks {
+  color: #ffffff;
+  background-color: #318252;
+  border-color: #AED6C3;
+}
+
+.btn-mispicks:hover,
+.btn-mispicks:focus,
+.btn-mispicks:active,
+.btn-mispicks.active,
+.open .dropdown-toggle.btn-mispicks {
+  color: #ffffff;
+  background-color: #214D33;
+  border-color: #AED6C3;
+}
+
+.btn-mispicks:active,
+.btn-mispicks.active,
+.open .dropdown-toggle.btn-mispicks {
+  background-image: none;
+}
+
+.btn-mispicks.disabled,
+.btn-mispicks[disabled],
+fieldset[disabled] .btn-mispicks,
+.btn-mispicks.disabled:hover,
+.btn-mispicks[disabled]:hover,
+fieldset[disabled] .btn-mispicks:hover,
+.btn-mispicks.disabled:focus,
+.btn-mispicks[disabled]:focus,
+fieldset[disabled] .btn-mispicks:focus,
+.btn-mispicks.disabled:active,
+.btn-mispicks[disabled]:active,
+fieldset[disabled] .btn-mispicks:active,
+.btn-mispicks.disabled.active,
+.btn-mispicks[disabled].active,
+fieldset[disabled] .btn-mispicks.active {
+  background-color: #318252;
+  border-color: #AED6C3;
+}
+
+.btn-mispicks .badge {
+  color: #318252;
+  background-color: #ffffff;
 }

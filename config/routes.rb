@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'stats/index'
 
+  get 'index' => 'static_pages#index', as: :indexhome
+
   get 'mispicks/:id' => 'static_pages#mispicks', as: :mispicks
   get 'mispicks/:id/:sport' => 'static_pages#mispicks', as: :mispicksbysport
 
