@@ -24,3 +24,4 @@ two:
   totalstaked: 5
   cuotaavg: 1.5
   created_at: <%= 10.minutes.ago %>
+  user: tercero

@@ -4,7 +4,7 @@ class Pick < ActiveRecord::Base
   has_many :passive_favorites, class_name:  "Favorite",
            foreign_key: "pick_id",
            dependent:   :destroy
-  has_many :favby, through: :passive_favorites, source: :owner
+  has_many :favby, through: :passive_favorites, source: :user
 
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
@@ -25,7 +25,9 @@ class Pick < ActiveRecord::Base
     update_attribute(:result, result)
   end
 
-
+def favedby?(user)
+  favby.include?(user)
+end
   #Registra la apuesta en las estadisticas de usuario
   def addonstats
 
