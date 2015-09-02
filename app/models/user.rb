@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  has_many :active_favorites, class_name:  "Favorite",
+           foreign_key: "user_id",
+           dependent:   :destroy
+  has_many :favorites, through: :active_favorites, source: :favorited
 
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
@@ -95,6 +99,19 @@ class User < ActiveRecord::Base
   # Follows a user.
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
+  end
+
+
+  def fav(pick)
+    active_favorites.create(pick_id: pick.id)
+  end
+
+  def unfav(pick)
+    active_favorites.find_by(pick_id: pick.id).destroy
+  end
+
+  def faving?(pick)
+    favorites.include?(pick)
   end
 
   # Unfollows a user.

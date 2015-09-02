@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'mispicks/:id' => 'static_pages#mispicks', as: :mispicks
   get 'mispicks/:id/:sport' => 'static_pages#mispicks', as: :mispicksbysport
 
-  get 'users/:id/:sport' => 'users#show', as: :userpicksbysport
+  get 'users/:id/sport/:sport' => 'users#show', as: :userpicksbysport
   get 'faq' => 'static_pages#faq'
 
   get 'contacto' => 'static_pages#contacto'

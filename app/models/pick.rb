@@ -1,5 +1,11 @@
 class Pick < ActiveRecord::Base
   belongs_to :user
+
+  has_many :passive_favorites, class_name:  "Favorite",
+           foreign_key: "pick_id",
+           dependent:   :destroy
+  has_many :favby, through: :passive_favorites, source: :owner
+
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
 	validates :evento, presence: true ,length: { maximum: 75 }
