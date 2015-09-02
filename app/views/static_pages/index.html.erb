@@ -14,7 +14,9 @@
     </aside>
     <div class="col-md-2">      <section class="newpick_form">
       <%= link_to "Publicar pick", new_pick_path, class: "btn btn-lg btn-filtro" %>
-    </section></div>
+    </section><br>
+      <%= link_to "Mis Picks", mispicks_path(id: current_user), class: "btn btn-lg btn-mispicks" %>
+    </div>
     <div class="col-md-7"></div>
     </div>
 
@@ -51,10 +53,9 @@
             </ul></div>
           <br><br>
           <ol class="picks">
-            <%= render @picks %>
+            <%= render @verdes %>
           </ol>
         </div></div>
-      <%= will_paginate @picks %>
 
     </div>
     <div class="col-md-6">

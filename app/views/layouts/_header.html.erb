@@ -8,16 +8,15 @@
       <% if logged_in? %>
           <li><%= link_to "Inicio", indexhome_path %></li>
           <li><%= link_to "Mi Timeline", root_path %></li>
-          <li><%= link_to "Mis Picks", mispicks_path(id: current_user) %></li>
           <li><%= link_to "Picks PRO", '#' %></li>
           <li><%= link_to "Rankings", ranking_path %></li>
           
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              Mi Cuenta <b class="caret"></b>
+              <%= current_user.name %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Perfil", current_user %></li>
+              <li><%= link_to "Mis Picks", mispicks_path(id: current_user) %></li>
               <li><%= link_to "Editar", edit_user_path(current_user) %></li>
 
               <li><%= link_to "Configuración", '#' %></li>

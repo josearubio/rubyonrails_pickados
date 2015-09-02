@@ -10,7 +10,8 @@
 
     </div>
     <div class="col-md-3" >    <%= image_tag ""+pick.deporte.to_s+".png", :alt => "share", :title => "share" , :size=> "20"%><br><br>
-      <% if pick.pickdate.presence %><% if pick.pickdate <= Time.now %>
+      <% if pick.pickdate.presence %><% if pick.pickdate <= Time.now-120*60 %> Finalizado.
+              <% elsif pick.pickdate <= Time.now %>
               Empezó hace:<br> <%= distance_of_time_in_words_to_now(pick.pickdate) %>
           <% else %>Empieza en:<br> <%= distance_of_time_in_words_to_now(pick.pickdate) %>
           <% end%>

@@ -10,7 +10,9 @@ class StaticPagesController < ApplicationController
 
   def index
     @pick = current_user.picks.build if logged_in?
-    @picks= Pick.all.paginate(page: params[:page], :per_page => 20) if logged_in?
+    @picks= Pick.all.paginate(page: params[:page], :per_page => 15) if logged_in?
+    @verdes=Pick.where("result = ?",'ok').limit(5)
+
     if !params[:sport].nil?
       if params[:sport]!='todos'
         @picks= current_user.feed.where("deporte = ?",params[:sport]).paginate(page: params[:page], :per_page => 5) if logged_in?
