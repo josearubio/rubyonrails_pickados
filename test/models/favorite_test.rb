@@ -8,6 +8,7 @@ class FavoriteTest < ActiveSupport::TestCase
     prueba.fav(one)
     assert prueba.faving?(one)
     assert one.favedby?(prueba)
+    assert prueba.favorites.any?
     prueba.unfav(one)
     assert_not prueba.faving?(one)
   end

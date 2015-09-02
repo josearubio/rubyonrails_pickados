@@ -73,13 +73,22 @@ class PicksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to current_user }
       format.js {
-        render :template => 'picks/tick.js.erb'
+        render :template => 'picks/fav.js.erb'
+      }
+    end
+  end
+
+  def unfav
+    @pick=Pick.find(params[:id])
+    current_user.unfav(@pick)
+    respond_to do |format|
+      format.html { redirect_to current_user }
+      format.js {
+        render :template => 'picks/fav.js.erb'
       }
 
     end
   end
-
-
 
   private
 	  def pick_params

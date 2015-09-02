@@ -21,6 +21,11 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  def favorites
+    @pick = current_user.picks.build if logged_in?
+    @picks= current_user.favorites.paginate(page: params[:page], :per_page => 15) if logged_in?
+  end
+
   def faq
   end
 

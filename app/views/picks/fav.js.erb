@@ -1,0 +1,11 @@
+$('.fav').bind('ajax:success', function(event) {
+    var clicked_div = $(this).parent(".col-md-2");
+    clicked_div.html('<%= image_tag "favorited.png", :alt => "share", :title => "share" , :size=> "20"%>');
+
+});
+
+$('.unfav').bind('ajax:success', function(event) {
+    var clicked_div = $(this).parent(".col-md-2");
+    clicked_div.html('<%= image_tag "favorites.png", :alt => "share", :title => "share" , :size=> "20"%>');
+
+});
