@@ -1,6 +1,11 @@
 class Pick < ActiveRecord::Base
   belongs_to :user
 
+  scope :top, joins('left join favby on fadvy.pick_id = picks.pick_id').
+                select('picks.*, count(fadvy.id) as fadby_count').
+                group('picks.id').
+                order('fadby_count desc')
+
   has_many :passive_favorites, class_name:  "Favorite",
            foreign_key: "pick_id",
            dependent:   :destroy

@@ -34,7 +34,9 @@
         <div class="col-md-8">
           <div class="panel panel-default">
             <div class="panel-body">
-
+              <% if !current_user.favorites.any? %>
+                  No has marcado ningún pick como favorito.
+              <% end %>
               <ol class="picks">
                 <%= render @picks %>
               </ol>
