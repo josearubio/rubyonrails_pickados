@@ -23,7 +23,7 @@ activated: true,
 end
 
 users = User.order(:created_at).take(6)
-27.times do
+5.times do
   evento = "Barcelona-Elche"
   pronostico= "Gana Barcelona"
   deporte= "futbol"
@@ -31,7 +31,29 @@ users = User.order(:created_at).take(6)
   cuota=1.30
   stake=10
   users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria,
-  pickdate: "2015-08-30 22:00:00".to_time) }
+  pickdate: "2015-09-15 22:00:00".to_time) }
+end
+
+5.times do
+  evento = "Federer-Djokovic"
+  pronostico= "Gana Federer"
+  deporte= "tenis"
+  categoria= "Liga BBVA"
+  cuota=3
+  stake=2
+  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria,
+                                         pickdate: "2015-09-10 22:00:00".to_time) }
+end
+
+5.times do
+  evento = "SA Spurs - LA Lakers"
+  pronostico= "Mas de 200 puntos"
+  deporte= "baloncesto"
+  categoria= "NBA"
+  cuota=1.90
+  stake=4
+  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria,
+                                         pickdate: "2015-09-09 22:00:00".to_time) }
 end
 
 users[1].stats.create!( acierto: 66,
@@ -43,7 +65,7 @@ totalpicks: 30,
 profit: 10,
 totalstaked: 30,
 cuotaavg: 2,
-created_at: "2015-08-10 10:30:14".to_time)
+created_at: "2015-09-03 10:30:14".to_time)
 
 users[2].stats.create!( acierto: 50,
                         yield: 0,
@@ -54,7 +76,7 @@ users[2].stats.create!( acierto: 50,
                         profit: 0,
                         totalstaked: 80,
                         cuotaavg: 2,
-                        created_at: "2015-08-10 10:30:14".to_time)
+                        created_at: "2015-09-03 10:30:14".to_time)
 
 users[3].stats.create!( acierto: 60,
                         yield: 15,
@@ -65,7 +87,32 @@ users[3].stats.create!( acierto: 60,
                         profit: 4,
                         totalstaked: 60,
                         cuotaavg: 2,
-                        created_at: "2015-08-10 10:30:14".to_time)
+                        created_at: "2015-09-03 10:30:14".to_time)
+
+
+users[4].stats.create!( acierto: 40,
+                        yield: 5,
+                        acertadas: 20,
+                        falladas: 5,
+                        anuladas: 5,
+                        totalpicks: 30,
+                        profit: 10,
+                        totalstaked: 30,
+                        cuotaavg: 2,
+                        created_at: "2015-09-03 10:30:14".to_time)
+
+users[5].stats.create!( acierto: 50,
+                        yield: 2,
+                        acertadas: 20,
+                        falladas: 20,
+                        anuladas: 0,
+                        totalpicks: 40,
+                        profit: 0,
+                        totalstaked: 80,
+                        cuotaavg: 2,
+                        created_at: "2015-09-03 10:30:14".to_time)
+
+
 # Following relationships
 users = User.all
 user  = users.first
