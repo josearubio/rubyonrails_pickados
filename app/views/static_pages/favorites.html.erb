@@ -1,0 +1,48 @@
+
+<% if logged_in? %>
+    <div class="container fondogris">
+      <div class="row margintop">
+        <aside class="col-md-3">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <section class="user_info">
+                <%= render 'shared/user_info' %>
+              </section>
+              <section class="stats">
+                <%= render 'shared/stats' %>
+              </section></div></div>
+          <section class="newpick_form">
+            <%= link_to " Publicar pick", new_pick_path, class: "btn btn-lg btn-filtro" %>
+          </section>
+          <section class="userstats">
+            <% if current_user.stats.any? %>
+                <div class="panel panel-default">
+
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-stats"></span> Estadísticas
+                      <span class="glyphicon glyphicon-calendar"></span> <%= l(current_user.stats.last.created_at, format: :mesano)%></h3>
+                  </div>
+                  <div class="panel-body">
+
+                    <%= render 'shared/userstats' %>
+
+                  </div></div>
+            <% end %>
+          </section>
+        </aside>
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <% if !current_user.favorites.any? %>
+                  No has marcado ningún pick como favorito.
+              <% end %>
+              <ol class="picks">
+                <%= render @picks %>
+              </ol>
+            </div></div>
+          <%= will_paginate @picks %>
+
+        </div>
+      </div></div>
+<% end %>

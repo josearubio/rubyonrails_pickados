@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'mispicks/:id' => 'static_pages#mispicks', as: :mispicks
   get 'mispicks/:id/:sport' => 'static_pages#mispicks', as: :mispicksbysport
 
+  get 'favorites' => 'static_pages#favorites', as: :favorites
+
   get 'users/:id/sport/:sport' => 'users#show', as: :userpicksbysport
   get 'faq' => 'static_pages#faq'
 
@@ -31,6 +33,9 @@ Rails.application.routes.draw do
 	get 'inicio/index'
 
   get 'picks/:id/tick/:result' => 'picks#tickar', as: :tick_pick
+
+  get 'picks/:id/fav' => 'picks#fav', as: :fav_pick
+  get 'picks/:id/unfav' => 'picks#unfav', as: :unfav_pick
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'

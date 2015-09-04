@@ -1,6 +1,6 @@
 class Favorite < ActiveRecord::Base
-  belongs_to :owner, class_name: "User"
-  belongs_to :favorited, class_name: "Pick"
+  belongs_to :user
+  belongs_to :pick
   validates :pick_id, presence: true
   validates :user_id, presence: true
 end

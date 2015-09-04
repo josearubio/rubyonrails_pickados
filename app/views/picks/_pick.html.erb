@@ -47,8 +47,11 @@
       <span class="timestamp"><span class="glyphicon glyphicon-time"></span> Hace <%= time_ago_in_words(pick.created_at) %>. </span>
   </div>
   <div class="col-md-2">
-    <%= image_tag "share-icon.png", :alt => "share", :title => "share" , :size=> "16"%> Twittear
-
+    <% if pick.favedby?(current_user) %>
+        <%= link_to image_tag("favorited.png",:width=>"20",:height=>"20" ), unfav_pick_path(:id => pick.id),remote: true, class: "unfav"%>
+    <% else %>
+    <%= link_to image_tag("favorites.png",:width=>"20",:height=>"20" ), fav_pick_path(:id => pick.id),remote: true, class: "fav"%>
+    <% end %>
   </div>
     <div class="col-md-3"><% if isOnTime(pick)%>
           <%= link_to "Eliminar pick", pick, method: :delete, class: "btn btn-danger",

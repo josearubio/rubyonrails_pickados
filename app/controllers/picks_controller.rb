@@ -67,7 +67,28 @@ class PicksController < ApplicationController
     end
   end
 
+  def fav
+    @pick=Pick.find(params[:id])
+    current_user.fav(@pick)
+    respond_to do |format|
+      format.html { redirect_to current_user }
+      format.js {
+        render :template => 'picks/fav.js.erb'
+      }
+    end
+  end
 
+  def unfav
+    @pick=Pick.find(params[:id])
+    current_user.unfav(@pick)
+    respond_to do |format|
+      format.html { redirect_to current_user }
+      format.js {
+        render :template => 'picks/fav.js.erb'
+      }
+
+    end
+  end
 
   private
 	  def pick_params

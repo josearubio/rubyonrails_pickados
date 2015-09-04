@@ -1,10 +1,15 @@
 class Pick < ActiveRecord::Base
   belongs_to :user
 
+  scope :top, joins('left join favby on fadvy.pick_id = picks.pick_id').
+                select('picks.*, count(fadvy.id) as fadby_count').
+                group('picks.id').
+                order('fadby_count desc')
+
   has_many :passive_favorites, class_name:  "Favorite",
            foreign_key: "pick_id",
            dependent:   :destroy
-  has_many :favby, through: :passive_favorites, source: :owner
+  has_many :favby, through: :passive_favorites, source: :user
 
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
@@ -25,7 +30,9 @@ class Pick < ActiveRecord::Base
     update_attribute(:result, result)
   end
 
-
+def favedby?(user)
+  favby.include?(user)
+end
   #Registra la apuesta en las estadisticas de usuario
   def addonstats
 

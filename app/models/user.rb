@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :active_favorites, class_name:  "Favorite",
            foreign_key: "user_id",
            dependent:   :destroy
-  has_many :favorites, through: :active_favorites, source: :favorited
+  has_many :favorites, through: :active_favorites, source: :pick
 
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email

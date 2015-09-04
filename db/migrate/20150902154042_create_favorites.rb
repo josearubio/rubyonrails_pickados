@@ -8,6 +8,6 @@ class CreateFavorites < ActiveRecord::Migration
     end
     add_index :favorites, :pick_id
     add_index :favorites, :user_id
-    #add_index :favorites, [:pick_id, :user_id], unique: true
+    add_index :favorites, [:pick_id, :user_id], unique: true
   end
 end
