@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150902154042) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "favorites", force: true do |t|
     t.integer  "pick_id"
     t.integer  "user_id"
@@ -20,9 +23,9 @@ ActiveRecord::Schema.define(version: 20150902154042) do
     t.datetime "updated_at"
   end
 
-  add_index "favorites", ["pick_id", "user_id"], name: "index_favorites_on_pick_id_and_user_id", unique: true
-  add_index "favorites", ["pick_id"], name: "index_favorites_on_pick_id"
-  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id"
+  add_index "favorites", ["pick_id", "user_id"], name: "index_favorites_on_pick_id_and_user_id", unique: true, using: :btree
+  add_index "favorites", ["pick_id"], name: "index_favorites_on_pick_id", using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "picks", force: true do |t|
     t.string   "pronostico"
@@ -40,8 +43,8 @@ ActiveRecord::Schema.define(version: 20150902154042) do
     t.datetime "pickdate"
   end
 
-  add_index "picks", ["user_id", "created_at"], name: "index_picks_on_user_id_and_created_at"
-  add_index "picks", ["user_id"], name: "index_picks_on_user_id"
+  add_index "picks", ["user_id", "created_at"], name: "index_picks_on_user_id_and_created_at", using: :btree
+  add_index "picks", ["user_id"], name: "index_picks_on_user_id", using: :btree
 
   create_table "relationships", force: true do |t|
     t.integer  "follower_id"
@@ -50,9 +53,9 @@ ActiveRecord::Schema.define(version: 20150902154042) do
     t.datetime "updated_at"
   end
 
-  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
-  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id", using: :btree
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
 
   create_table "stats", force: true do |t|
     t.float    "acierto",     default: 0.0
@@ -70,7 +73,7 @@ ActiveRecord::Schema.define(version: 20150902154042) do
     t.datetime "updated_at"
   end
 
-  add_index "stats", ["user_id"], name: "index_stats_on_user_id"
+  add_index "stats", ["user_id"], name: "index_stats_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -86,7 +89,7 @@ ActiveRecord::Schema.define(version: 20150902154042) do
     t.datetime "reset_sent_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   create_table "usuarios", force: true do |t|
     t.string   "login"

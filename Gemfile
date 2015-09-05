@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
 
+gem 'pg'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 gem 'bcrypt', '~> 3.1.2'
