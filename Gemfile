@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-
+ruby "2.1.7"
 gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
