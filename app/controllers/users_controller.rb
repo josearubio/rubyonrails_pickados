@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @picks = @user.picks.paginate(page: params[:page], :per_page => 6)
+
     if !params[:sport].nil?
       @picks= @user.picks.where("deporte = ?",params[:sport]).paginate(page: params[:page], :per_page => 6) if logged_in?
     end

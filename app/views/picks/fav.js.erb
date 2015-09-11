@@ -1,11 +1,13 @@
 $('.fav').bind('ajax:success', function(event) {
     var clicked_div = $(this).parent(".col-md-2");
-    clicked_div.html('<%= image_tag "favorited.png", :alt => "share", :title => "share" , :size=> "20"%>');
+    clicked_div.html('<%= image_tag "favorited.png", :alt => "unfav", :title => "unfav" , :size=> "20"%>');
 
 });
 
 $('.unfav').bind('ajax:success', function(event) {
     var clicked_div = $(this).parent(".col-md-2");
-    clicked_div.html('<%= image_tag "favorites.png", :alt => "share", :title => "share" , :size=> "20"%>');
+    clicked_div.html('<%= image_tag "favorites.png", :alt => "fav", :title => "fav" , :size=> "20"%>');
 
 });
+
+

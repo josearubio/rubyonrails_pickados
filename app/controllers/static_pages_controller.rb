@@ -12,7 +12,7 @@ class StaticPagesController < ApplicationController
     @pick = current_user.picks.build if logged_in?
     @picks= Pick.all.paginate(page: params[:page], :per_page => 15) if logged_in?
     @verdes=Pick.where("result = ?",'ok').limit(5)
-    @favs=Pick.joins(:passive_favorites).select('picks.*, count(pick_id) as "pick_count"').group(:pick_id).order(' pick_count desc')
+    @favs=Pick.joins(:passive_favorites).select('picks.*, count(pick_id) as "pick_count"').group("picks.id").order(' pick_count desc')
 
     if !params[:sport].nil?
       if params[:sport]!='todos'

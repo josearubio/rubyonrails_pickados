@@ -9,12 +9,46 @@ body {
   background: url(fondogris.jpg) no-repeat center center;
 
 }
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
 
+.alert {
+  margin-bottom:0px;
+  text-align: center;
+}
 table {
   border-collapse: separate;
   border-spacing:  5px 15px;
 }
 
+.pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
+  color: #fffdfe;
+  background-color: #2fa74c;
+  border-color: #dddddd;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  z-index: 2;
+  color: white;
+  background-color: #2fa74c;
+  border-color: #2fa74c;
+  cursor: default;
+}
+
+.pagination > li > a, .pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  line-height: 1.428571429;
+  text-decoration: none;
+  color: #048f4e;
+  background-color: white;
+  border: 1px solid #dddddd;
+  margin-left: -1px;
+}
 //#container{
   //margin-top: 100px;
 //}

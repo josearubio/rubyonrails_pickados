@@ -4,18 +4,27 @@
 });**/
 $('.tickandoazul').bind('ajax:success', function(event) {
     var clicked_div = $(this).parent(".muestra");
+
   clicked_div.html("<span style='color:#5064c9'><b>Anulada</b></span>");
 
 });
 
 $('.tickandoverde').bind('ajax:success', function(event) {
+    //OBTENEMOS OBJETO PADRE:
     var clicked_div = $(this).parent(".muestra");
-    clicked_div.html("<span style='color:#39c95c'><b>Acertada</b></span>");
+    //PARA CALCULAR UNIDADES GANADAS, OBTENEMOS STAKE Y CUOTA DEL PICK
+    var stake = $('.pick_info').data('stake')
+    var cuota = $('.pick_info').data('cuota')
+    var result = stake * cuota - cuota
+    //IMPRIMIMOS EL HTML EN EL OBJETO PADRE, INCLUYENDO UDS GANADAS (Redondeadas en 2 decimales)
+    clicked_div.html("<span style='color:#39c95c'><b>Acertada</b><br>+"+result.toFixed(2)
+    +" uds.</span>");
 
 });
 
 $('.tickandorojo').bind('ajax:success', function(event) {
     var clicked_div = $(this).parent(".muestra");
-    clicked_div.html("<span style='color:#c93b36'><b>Fallada</b></span>");
+    var stake = $('.pick_info').data('stake')
+    clicked_div.html("<span style='color:#c93b36'><b>Fallada</b><br>-"+stake+" uds.</span>");
 
 });

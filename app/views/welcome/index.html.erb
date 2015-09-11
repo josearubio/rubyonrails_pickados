@@ -1,6 +1,6 @@
 
 <% if logged_in? %>
-    <div class="container fondogris">
+    <div class="container">
     <div class="row margintop">
       <aside class="col-md-3">
         <div class="panel panel-default">
@@ -65,8 +65,8 @@
             <ol class="picks">
               <%= render @picks %>
             </ol>
-          </div></div>
-        <%= will_paginate @picks %>
+          </div><%= will_paginate @picks %></div>
+
 
       </div>
     </div>

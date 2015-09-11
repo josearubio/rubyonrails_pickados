@@ -29,10 +29,12 @@
             <%= link_to "Anulada", tick_pick_path(:id => pick.id, :result => "nula" ), remote: true, class: "btn btn-azul tickandoazul",
                         data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
 
+                <%= content_tag :div, class: "pick_info", data: {stake: pick.stake, cuota: pick.cuota} do %>
+                <% end %>
 
           <% elsif pick.status=='ticked' && pick.result=='nula' %> <span style='color:#5064c9'><b>Anulada</b></span>
           <% elsif pick.status=='ticked' && pick.result=='fail' %> <span style='color:#c93b36'><b>Fallada</b><br>-<%=pick.stake%> uds.</span>
-          <% elsif pick.status=='ticked' && pick.result=='ok' %> <span style='color:#39c95c'><b>Acertada</b><br>+<%=pick.stake*pick.cuota-pick.stake%> uds.</span>
+          <% elsif pick.status=='ticked' && pick.result=='ok' %> <span style='color:#39c95c'><b>Acertada</b><br>+<%=(pick.stake*pick.cuota-pick.stake).round(2)%> uds.</span>
                 <%else%> <%= pick.result %> <%= pick.status %>
           <% end %>
 
