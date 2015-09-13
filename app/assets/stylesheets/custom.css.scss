@@ -24,6 +24,18 @@ table {
   border-spacing:  5px 15px;
 }
 
+.panel-default > .panel-heading {
+  color: #e3fcea;
+  background-color: #048f4e;
+  border-color: #dddddd;
+  font-family: Lato, sans-serif;
+}
+
+.panel-default > .panel-heading > h3 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
 .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
   color: #fffdfe;
   background-color: #2fa74c;
@@ -270,6 +282,10 @@ span.picture {
   }
 }
 
+.btn {
+  transition: background-color 300ms ease-out;
+}
+
 .btn-verde {
   color: #FFFFFF;
   background-color: #7FE886;
@@ -433,7 +449,7 @@ fieldset[disabled] .btn-azul.active {
 
 .navbar-inverse .navbar-nav > li > a:hover {
   color: #39c95c;
-
+  transition: all 0.4s ease-in-out;
 }
 
 .puestos{
@@ -697,8 +713,8 @@ fieldset[disabled] .btn-registro.active {
 .btn-filtro:active,
 .btn-filtro.active,
 .open .dropdown-toggle.btn-filtro {
-  color: #7AC773;
-  background-color: #FAFAFA;
+  color: #e3fcea;
+  background-color: #39c95c;
   border-color: #7AC773;
 }
 

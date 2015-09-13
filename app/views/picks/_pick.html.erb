@@ -1,6 +1,9 @@
 <li class="marginleftpick" id="pick-<%= pick.id %>">
   <%= link_to gravatar_for(pick.user, size: 50), pick.user %>
   <span class="user"><%= link_to pick.user.name, pick.user %></span>
+  <% if pick.user.pro == 1%>
+  <%= image_tag "pro.png", :alt => "share", :title => "share" , :width=>"20",:height=>"13" %>
+      <% end %>
   <div class="row">
     <div class="col-md-5">
       <%#<%= l(pick.pickdate, format: :long)%><b><%= pick.pronostico %></b><br>Cuota: <b>@<%= pick.cuota %></b>
