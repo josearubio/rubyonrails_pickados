@@ -56,6 +56,17 @@ end
                                          pickdate: "2015-09-09 22:00:00".to_time) }
 end
 
+users[0].stats.create!( acierto: 2,
+                        yield: 33,
+                        acertadas: 20,
+                        falladas: 5,
+                        anuladas: 5,
+                        totalpicks: 30,
+                        profit: 10,
+                        totalstaked: 30,
+                        cuotaavg: 1.58,
+                        created_at: "2015-09-03 10:30:14".to_time)
+
 users[1].stats.create!( acierto: 66,
 yield: 33,
 acertadas: 20,
@@ -120,3 +131,11 @@ following = users[2..7]
 followers = users[3..10]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
+
+#Favoritos por defecto
+picks = Pick.all
+picksfaved = picks[1..2]
+picksfavede = picks[40..41]
+
+picksfaved.each {|pick| user.fav(pick) }
+picksfavede.each {|pick| user.fav(pick) }

@@ -29,11 +29,11 @@ class StaticPagesController < ApplicationController
     @pick = current_user.picks.build if logged_in?
     @picks= current_user.favorites.order(pickdate: :desc).paginate(page: params[:page], :per_page => 15) if logged_in?
 
-    @picks.each do |p|
-      if Time.now-24*60*60 >= p.pickdate
-        current_user.unfav(p)
-      end
-    end
+    #@picks.each do |p|
+     # if Time.now-24*60*60 >= p.pickdate
+       # current_user.unfav(p)
+      #end
+    #end
 
   end
 
