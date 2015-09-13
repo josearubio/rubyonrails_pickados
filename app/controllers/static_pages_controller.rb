@@ -1,4 +1,7 @@
 class StaticPagesController < ApplicationController
+  before_action :logged_in_user
+
+
   def mispicks
     @pick = current_user.picks.build if logged_in?
     @user = User.find(params[:id])
@@ -33,6 +36,8 @@ class StaticPagesController < ApplicationController
     end
 
   end
+
+
 
   def faq
   end

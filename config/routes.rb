@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'tipsters/index', as: :tipster
+
   get 'ranking/index', as: :ranking
 
   get 'welcome/index/:sport/:all' => 'welcome#index', as: :pickbysport
@@ -12,6 +14,8 @@ Rails.application.routes.draw do
   get 'mispicks/:id/:sport' => 'static_pages#mispicks', as: :mispicksbysport
 
   get 'favorites' => 'static_pages#favorites', as: :favorites
+
+  post 'usersetpro' => 'users#setpro', as: :userpro
 
   get 'users/:id/sport/:sport' => 'users#show', as: :userpicksbysport
   get 'faq' => 'static_pages#faq'

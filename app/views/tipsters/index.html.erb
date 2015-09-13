@@ -1,0 +1,33 @@
+<div class="row margintop">
+<div class="col-md-1"></div>
+<% if @ranks.any?%>
+    <% @ranks.each do |rank| %>
+          <% if rank.user.pro == 1%>
+        <div class="col-md-2"><div class="panel panel-default">
+          <div class="panel-heading">
+
+          </div>
+          <div class="panel-body"><%= link_to gravatar_for(rank.user, size: 50), rank.user %>
+            <span class="user"><%= link_to rank.user.name, rank.user %></span><br><br><br><div class="useerstats">
+            <b> <% if rank.yield>=0%>
+                  <span style="color:#39c95c ; font-size: 18pt">+<%= rank.yield.round(2)%>%</span> yield
+              <%else %>
+                  <span style="color:#c93b36"><%= rank.yield.round(2)%>%</span>
+              <%end%></b><br>
+            Total:<b> <%= rank.totalpicks %></b> picks<br>
+            Acertadas: <b><span style="color:#39c95c"><%= rank.acertadas%></span></b><br>
+            Falladas: <b><span style="color:#c93b36"><%= rank.falladas%></span></b><br>
+            Anuladas: <b><span style="color:#5064c9"><%= rank.anuladas%></span></b><br>
+            Cuota media:<b> @<%= rank.cuotaavg.round(2)%></b><br>
+            Beneficio: <b><% if rank.profit>=0%>
+                <span style="color:#39c95c">+<%= rank.profit%> uds.</span>
+            <%else %>
+                <span style="color:#c93b36"><%= rank.profit%> uds.</span>
+            <%end%></b>
+
+
+          </div></div>
+        </div></div><% end %>
+    <% end %>
+<% end %>
+</div>

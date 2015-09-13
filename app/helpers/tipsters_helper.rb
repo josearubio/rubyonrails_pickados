@@ -1,0 +1,2 @@
+module TipstersHelper
+end

@@ -3,6 +3,7 @@ require 'test_helper'
 class UsersEditTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:prueba)
+    @usera = User.new(id: 1, name: "Example User", email: "user@example.com",password: "foobar", password_confirmation: "foobar", pro:0)
   end
 
   test "unsuccessful edit" do
@@ -14,6 +15,12 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                     password:              "foo",
                                     password_confirmation: "bar" }
     assert_template 'users/edit'
+  end
+
+  test "set pro" do
+    assert_equal 0,@user.pro
+    post userpro_path, id: @user.id
+    assert_equal 1, @user.pro
   end
 
   test "successful edit" do

@@ -12,6 +12,12 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "post user pro" do
+
+    post :setpro, id: @user
+    assert_equal 1, @user.pro
+  end
+
   test "should redirect edit when not logged in" do
     get :edit, id: @user
     assert_not flash.empty?

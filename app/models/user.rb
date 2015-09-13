@@ -47,6 +47,14 @@ class User < ActiveRecord::Base
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
+  def setprotipster
+    update_attribute(:pro, 1)
+  end
+
+  def delprotipster
+    update_attribute(:pro, 0)
+  end
+
   # Returns true if the given token matches the digest.
   def authenticated?(attribute, token )
     digest = send("#{attribute}_digest")

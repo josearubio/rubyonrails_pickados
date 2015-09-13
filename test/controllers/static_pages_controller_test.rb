@@ -4,6 +4,7 @@ class StaticPagesControllerTest < ActionController::TestCase
 
   def setup
     @user = users(:prueba)
+    log_in_as(@user)
   end
 
   test "should get mispicks" do
