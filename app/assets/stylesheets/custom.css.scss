@@ -16,6 +16,10 @@ body {
   font-family: Lato,"helvetica neue",helvetica,sans-serif;
 }
 
+footer > .navbar {
+  bottom: 0;
+}
+
 .alert {
   margin-bottom:0px;
   text-align: center;
@@ -441,7 +445,9 @@ fieldset[disabled] .btn-azul.active {
 .navbara {
   background-color: rgba(0,0,0,0.5);
 }
-
+footer > .navbar-inverse {
+  margin-bottom: 0;
+}
 
 .navbar-inverse .navbar-nav > li > a {
   color: #e3fcea;
