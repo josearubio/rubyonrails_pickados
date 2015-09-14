@@ -31,15 +31,15 @@ es:
     - sáb
     abbr_month_names:
     -
-    - ene
-    - feb
-    - mar
+    - ENE
+    - FEB
+    - MAR
     - abr
     - may
     - jun
     - jul
     - ago
-    - sep
+    - Sep
     - oct
     - nov
     - dic
@@ -217,6 +217,7 @@ es:
       long: "%d de %B de %Y a las %H:%M"
       short: "%d de %b %H:%M"
       mesano: "%B/%Y"
+      shortcustom: "%d %b %H:%M"
     pm: pm
   will_paginate:
     previous_label: "&#8592; "

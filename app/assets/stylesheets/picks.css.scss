@@ -1,3 +1,18 @@
 // Place all the styles related to the picks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cuota {
+  font-size: 25px;
+}
+
+.panel-cuota {
+  background-color: rgba(4, 157, 86, 0.14);
+  color: #2f2f2f;
+  text-align: center;
+  border-color: #048f4e;
+ #border-left-width: 5px;
+  border-top-width: 5px;
+  #border-right-width: 5px;
+  border-bottom-width: 5px;
+}

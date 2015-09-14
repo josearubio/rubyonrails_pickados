@@ -6,29 +6,26 @@
       <% end %>
   <div class="row">
     <div class="col-md-5">
-      <%#<%= l(pick.pickdate, format: :long)%><b><%= pick.pronostico %></b><br>Cuota: <b>@<%= pick.cuota %></b>
-      | STK: <%= pick.stake %><hr class="pequeno">
-      En: <%= pick.evento %><br> (<%= pick.categoria %>)<br>
+      <%#<%= l(pick.pickdate, format: :long)%><b><%= pick.pronostico %></b><hr class="pequeno">
+      <%= image_tag ""+pick.deporte.to_s+".png", :size=> "20"%> <%= pick.evento %> <br>(<%= pick.categoria %>)<br>
+      <%= l(pick.pickdate, format: :shortcustom)%>
 
 
     </div>
-    <div class="col-md-3" >    <%= image_tag ""+pick.deporte.to_s+".png", :alt => "share", :title => "share" , :size=> "20"%><br><br>
-      <% if pick.pickdate.presence %><% if pick.pickdate <= Time.now-120*60 %> Finalizado.
-              <% elsif pick.pickdate <= Time.now %>
-              Empezó hace:<br> <%= distance_of_time_in_words_to_now(pick.pickdate) %>
-          <% else %>Empieza en:<br> <%= distance_of_time_in_words_to_now(pick.pickdate) %>
-          <% end%>
-      <% end%>
+    <div class="col-md-2 panel panel-cuota" >
+      <div class="cuota "><span style="font-size: 15px">@</span><%= pick.cuota %></div>
+      <div class="stake">STK <%= pick.stake %></div>
+      <div><%= image_tag "bet365.png", :weight => "32", :height => "16"%></div>
     </div>
-    <div class="col-md-2">
-      <div id="tick_<%= pick.id %>" class="muestra">
+    <div class="col-md-3">
+      <div id="tick_<%= pick.id %>" class="muestra" style="margin-left: 45px;">
       <% if ownpick?(pick) %>
             <% if pick.status!='ticked' %>
             Tickar:<br>
-            <%= link_to "Verde", tick_pick_path(:id => pick.id, :result => "ok" ), remote: true, class: "btn btn-verde tickandoverde",
-                        data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
-            <%= link_to "Rojo", tick_pick_path(:id => pick.id, :result => "fail" ), remote: true, class: "btn btn-rojo tickandorojo",
-                        data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
+            <%= link_to "Acertada", tick_pick_path(:id => pick.id, :result => "ok" ), remote: true, class: "btn btn-verde tickandoverde",
+                        data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%><br>
+            <%= link_to "Fallada", tick_pick_path(:id => pick.id, :result => "fail" ), remote: true, class: "btn btn-rojo tickandorojo",
+                        data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%><br>
             <%= link_to "Anulada", tick_pick_path(:id => pick.id, :result => "nula" ), remote: true, class: "btn btn-azul tickandoazul",
                         data: { confirm: "Una vez tickado no se puede modificar, ¿Estás seguro?" }%>
 

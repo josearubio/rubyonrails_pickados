@@ -449,6 +449,23 @@ footer > .navbar-inverse {
   margin-bottom: 0;
 }
 
+
+
+.footernav > div > li > a {
+  color: #e3fcea;
+
+}
+
+.footernav > div > li > a:hover {
+  color: #39c95c;
+  transition: all 0.2s ease-in-out;
+
+}
+
+.footernav > div > h3 {
+  color: #fffdfe;
+}
+
 .navbar-inverse .navbar-nav > li > a {
   color: #e3fcea;
 
