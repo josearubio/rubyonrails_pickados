@@ -37,6 +37,11 @@ class StaticPagesController < ApplicationController
 
   end
 
+  def reports
+    @pick = current_user.picks.build if logged_in?
+    @picks = Pick.where("report = ?", true).paginate(page: params[:page], :per_page => 15)
+  end
+
 
 
   def faq

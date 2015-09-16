@@ -28,9 +28,10 @@ users = User.order(:created_at).take(6)
   pronostico= "Gana Barcelona"
   deporte= "futbol"
   categoria= "Liga BBVA"
+  bookie="Bet365"
   cuota=1.30
   stake=10
-  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria,
+  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria, bookie: bookie,
   pickdate: "2015-09-15 22:00:00".to_time) }
 end
 
@@ -39,9 +40,10 @@ end
   pronostico= "Gana Federer"
   deporte= "tenis"
   categoria= "Liga BBVA"
+  bookie="Bet365"
   cuota=3
   stake=2
-  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria,
+  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria, bookie: bookie,
                                          pickdate: "2015-09-10 22:00:00".to_time) }
 end
 
@@ -50,9 +52,10 @@ end
   pronostico= "Mas de 200 puntos"
   deporte= "baloncesto"
   categoria= "NBA"
+  bookie="Bet365"
   cuota=1.90
   stake=4
-  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria,
+  users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria, bookie: bookie,
                                          pickdate: "2015-09-09 22:00:00".to_time) }
 end
 

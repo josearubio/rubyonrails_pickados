@@ -11,7 +11,19 @@
       <%= l(pick.pickdate, format: :shortcustom)%>
 
 
-    </div>
+
+        <%if pick.explicacion.presence %>
+
+          <div class="explicacion">
+            <div class="linkexplicacion"><%= link_to "Mostrar explicación", mostrarexplicacion_path, remote: true, class: "mostrarexplicacion" %></div>
+        <%= content_tag :div, class: "pick_text", data: {text: pick.explicacion} do %>
+        <% end %>
+            <div class="texto"></div>
+          </div>
+      <%end%>
+
+
+          </div>
     <div class="col-md-2 panel panel-cuota" >
       <div class="cuota "><span style="font-size: 15px">@</span><%= pick.cuota %></div>
       <div class="stake">STK <%= pick.stake %></div>
@@ -42,7 +54,7 @@
 
       <% end %></div></div>
   </div>
-  <div class="row">
+  <div class="row showhideparent">
 
 
     <div class="col-md-5">
@@ -55,10 +67,18 @@
     <%= link_to image_tag("favorites.png",:width=>"20",:height=>"20" ), fav_pick_path(:id => pick.id),remote: true, class: "fav"%>
     <% end %>
   </div>
-    <div class="col-md-3"><% if isOnTime(pick)%>
+    <div class="col-md-3 nowrap showhide" >
+      <% if isOnTime(pick) || admin?%>
           <%= link_to "Eliminar pick", pick, method: :delete, class: "btn btn-danger",
                               data: { confirm: "Estás seguro de borrar el pick?" } %>
-      <% end %></div>
+      <% end %>
+      <%= link_to "Reportar #{image_tag("report.png",:size=>"20" )}".html_safe, report_path(:id => pick.id), method: :post, class: "reporting",
+                  data: { confirm: "¿Estás seguro de reportar el pick?
+                  Algunas de las razones para reportar son cuota falseada, resultado falseado, evento inexistente, etc..." }%></div>
   </div>
 
 </li>
+
+<script>
+
+</script>

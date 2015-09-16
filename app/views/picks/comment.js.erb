@@ -1,0 +1,9 @@
+$('.mostrarexplicacion').bind('ajax:success', function(event) {
+    var linkdiv= $(this).parent(".linkexplicacion");
+    var prueba = $(this).parent(".linkexplicacion").parent(".explicacion").children(".texto");
+    var text = $(this).parent(".linkexplicacion").parent(".explicacion").children('.pick_text').data('text')
+
+    prueba.html('    <i>'+text+'</i>');
+    linkdiv.html('<b>Explicación:</b>')
+
+});

@@ -16,3 +16,26 @@
   #border-right-width: 5px;
   border-bottom-width: 5px;
 }
+
+.texto {
+  //background-color: #ffffff;
+  margin-left: 10px;
+  transition: height .4s;
+}
+
+.explicacion {
+  //background-color: #ffffff;
+  margin-left: 10px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.showhide{
+  opacity: 0;
+}
+
+.showhide > .reporting {
+  color: #666666;
+}

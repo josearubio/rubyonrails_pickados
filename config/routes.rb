@@ -10,12 +10,18 @@ Rails.application.routes.draw do
 
   get 'index' => 'static_pages#index', as: :indexhome
 
+  get 'reports' => 'static_pages#reports', as: :reports
+
+  get 'mostrarexplicacion' => 'picks#mostrarexplicacion', as: :mostrarexplicacion
+
   get 'mispicks/:id' => 'static_pages#mispicks', as: :mispicks
   get 'mispicks/:id/:sport' => 'static_pages#mispicks', as: :mispicksbysport
 
   get 'favorites' => 'static_pages#favorites', as: :favorites
 
   post 'usersetpro' => 'users#setpro', as: :userpro
+
+  post 'reportpick' => 'picks#report', as: :report
 
   get 'users/:id/sport/:sport' => 'users#show', as: :userpicksbysport
   get 'faq' => 'static_pages#faq'

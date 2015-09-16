@@ -20,6 +20,7 @@ class Pick < ActiveRecord::Base
   validates :cuota, presence: true
   validates :stake, presence: true
   validates :pickdate, presence: true
+  validates :bookie, presence: true
 
   def setstarted
     update_attribute(:status,'started')
@@ -30,9 +31,13 @@ class Pick < ActiveRecord::Base
     update_attribute(:result, result)
   end
 
-def favedby?(user)
+  def reportpick
+    update_attribute(:report, true)
+  end
+
+  def favedby?(user)
   favby.include?(user)
-end
+  end
   #Registra la apuesta en las estadisticas de usuario
   def addonstats
 

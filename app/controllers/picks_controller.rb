@@ -53,7 +53,14 @@ class PicksController < ApplicationController
 	  redirect_to root_url
   end
 
-
+def mostrarexplicacion
+  respond_to do |format|
+    format.html { redirect_to current_user }
+    format.js {
+      render :template => 'picks/comment.js.erb'
+    }
+  end
+  end
   def tickar
     @pick=Pick.find(params[:id])
     @pick.setticked(params[:result])
@@ -65,6 +72,12 @@ class PicksController < ApplicationController
       }
 
     end
+  end
+
+  def report
+    @pick= Pick.find(params[:id])
+    @pick.reportpick
+    redirect_to root_path
   end
 
   def fav
@@ -92,7 +105,7 @@ class PicksController < ApplicationController
 
   private
 	  def pick_params
-	    params.require(:pick).permit(:evento, :pronostico,:cuota,:deporte,:categoria,:stake,:pickdate)
+	    params.require(:pick).permit(:evento, :pronostico,:cuota,:deporte,:categoria,:stake,:pickdate,:explicacion)
     end
 
   def correct_user
