@@ -63,7 +63,7 @@ Rails.application.configure do
   Net::SMTP.enable_tls(OpenSSL::SSL::VERIFY_NONE)
   #host = 'localhost:3000'
  # config.action_mailer.default_url_options = { host: host }
-  config.action_mailer.default_url_options = { :host => 'www.guarded-ravine-6205.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'guarded-ravine-6205.herokuapp.com' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
