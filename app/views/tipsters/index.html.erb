@@ -1,36 +1,31 @@
-<div class="margintop" style="text-align: center">
-  <h1>Tipster Premium ordenados por estadísticas</h1>
-  <h2>(**Temporal, trabajando en ello**)</h2>
-<div class="row">
-<div class="col-md-1"></div>
-<% if @ranks.any?%>
-    <% @ranks.each do |rank| %>
-          <% if rank.user.pro == 1%>
-        <div class="col-md-2"><div class="panel panel-default">
-          <div class="panel-heading">
+<div class="container margintop fondonegrotrans" style="text-align: center">
+  <%= image_tag("logopremium.png",:width=>"766",:height=>"174" )%>
+  <h3>Los tipsters con mayor experiencia y mejores números. </h3>
+  <h3>¡Contrata sus servicios! En caso de quedar en negativo, siguiente mes gratis.</h3>
+<div class="row paddeado">
+  <table class="table tableblanco">
+    <tr class="titulotabla">
+      <th>Tipster</th>
+      <th>Picks</th>
+      <th>Yield</th>
+      <th></th>
 
-          </div>
-          <div class="panel-body"><%= link_to gravatar_for(rank.user, size: 50), rank.user %>
-            <span class="user"><%= link_to rank.user.name, rank.user %></span><br><br><br><div class="useerstats">
-            <b> <% if rank.yield>=0%>
-                  <span style="color:#39c95c ; font-size: 18pt">+<%= rank.yield.round(2)%>%</span> yield
+    </tr>
+    <% if @ranks.any?%>
+  <% @ranks.each do |rank| %>
+          <tr class="centertd">
+            <td><%= link_to gravatar_for(rank.user, size: 50), rank.user %>
+              <b><span class="user"><%=rank.user.name%></span></b></td>
+            <td><%= pluralize(rank.user.picks.count, "pick") %></td>
+            <td><b> <% if rank.yield>=0%>
+                  <span style="color:#39c95c ; font-size: 18pt">+<%= rank.yield.round(2)%>%</span>
               <%else %>
                   <span style="color:#c93b36"><%= rank.yield.round(2)%>%</span>
-              <%end%></b><br>
-            Total:<b> <%= rank.totalpicks %></b> picks<br>
-            Acertadas: <b><span style="color:#39c95c"><%= rank.acertadas%></span></b><br>
-            Falladas: <b><span style="color:#c93b36"><%= rank.falladas%></span></b><br>
-            Anuladas: <b><span style="color:#5064c9"><%= rank.anuladas%></span></b><br>
-            Cuota media:<b> @<%= rank.cuotaavg.round(2)%></b><br>
-            Beneficio: <b><% if rank.profit>=0%>
-                <span style="color:#39c95c">+<%= rank.profit%> uds.</span>
-            <%else %>
-                <span style="color:#c93b36"><%= rank.profit%> uds.</span>
-            <%end%></b>
+              <%end%></b></td>
+            <td><%= link_to "Contratar", relationships_path(:followed_id => rank.user.id), method: :post, class: "btn btn-default btn-lg network-name"  %></td>
+          </tr>
 
-
-          </div></div>
-        </div></div><% end %>
+  <% end %>
     <% end %>
-<% end %>
+      </table>
 </div></div>

@@ -35,7 +35,7 @@
           <ol class="picks">
             <%= render @verdes %>
           </ol>
-        </div></div>
+        </div><%= will_paginate @verdes, :param_name => 'verdes_page'  %></div>
     </div>
     <div class="col-md-6">
       <div class="panel panel-default">
@@ -45,7 +45,7 @@
           <ol class="picks">
             <%= render @picks %>
           </ol>
-        </div><%= will_paginate @picks %></div>
+        </div><%= will_paginate @picks, :param_name => 'todos_page'  %></div>
 
 
     </div>

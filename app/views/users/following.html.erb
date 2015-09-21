@@ -1,0 +1,116 @@
+<% provide(:title, @user.name) %>
+<div class="container fondonegrotrans">
+  <div class="row margintop">
+    <aside class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <section class="user_info">
+            <%= render 'shared/otheruser_info' %>
+          </section>
+          <section class="stats">
+            <%= render 'shared/stats' %>
+          </section></div></div>
+
+      <section class="userstats">
+        <% if @user.stats.any? %>
+            <div class="panel panel-default">
+
+              <div class="panel-heading">
+                <h3 class="panel-title"><span class="glyphicon glyphicon-stats"></span> Estadísticas
+                  <span class="glyphicon glyphicon-calendar"></span> <%= l(@user.stats.last.created_at, format: :mesano)%></h3>
+              </div>
+              <div class="panel-body">
+
+                <%= render 'shared/userstats' %>
+
+              </div></div>
+        <% end %>
+      </section>
+    </aside>
+    <div class="col-md-9">
+
+      <% if @following.any? %>
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3><%= @user.name %> sigue a:</h3></div>
+            <div class="panel-body">
+<ul>
+            <% @following.each do |user| %>
+                <div class="row margintopsmall">
+                  <div class="col-md-5">
+                  <%= gravatar_for user, size: 50 %>
+                  <%= link_to user.name, user %>
+                  <% if ispro?(user)%>
+                      <%= image_tag "pro.png", :alt => "share", :title => "share" , :width=>"20",:height=>"13" %>
+                  <% end %></div>
+                  <% if user.stats.any? %>
+                   Yield: <%= user.stats.last.yield%>%
+                  <%end%>
+                </div>
+
+
+            <% end %>
+</ul>
+
+
+          <%= will_paginate @following, :param_name => 'following_page'  %></div></div>
+
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12"><h1>Histórico picks</h1></div>
+    <div class="col-md-12">
+      <table class="table tableverde">
+        <tr class="titulotabla">
+          <th>Pronóstico</th>
+          <th>Evento</th>
+          <th>Categoría</th>
+          <th>Cuota</th>
+          <th>Stake</th>
+          <th>Bookie</th>
+          <th>Fecha</th>
+        </tr>
+
+        <% @tickados.each do |pick| %>
+            <% if pick.result == 'fail'%>
+                <tr class="centertd redfield">
+                  <td><%= pick.pronostico %></td>
+                  <td><%= image_tag ""+pick.deporte.to_s+".png", :size=> "20"%> <%= pick.evento %></td>
+                  <td><%= pick.categoria %></td>
+                  <td><%= pick.cuota%></td>
+                  <td><%= pick.stake%></td>
+                  <td><%= image_tag ""+pick.bookie.to_s+".png", :size=> "20"%></td>
+                  <td>Hace <%= time_ago_in_words(pick.pickdate) %></td>
+                </tr>
+            <%elsif pick.result == 'nula'%>
+                <tr class="centertd bluefield">
+                  <td><%= pick.pronostico %></td>
+                  <td><%= image_tag ""+pick.deporte.to_s+".png", :size=> "20"%> <%= pick.evento %></td>
+                  <td><%= pick.categoria %></td>
+                  <td><%= pick.cuota%></td>
+                  <td><%= pick.stake%></td>
+                  <td><%= image_tag ""+pick.bookie.to_s+".png", :size=> "20"%></td>
+                  <td>Hace <%= time_ago_in_words(pick.pickdate) %></td>
+                </tr>
+            <% else %>
+
+                <tr class="centertd">
+                  <td><%= pick.pronostico %></td>
+                  <td><%= image_tag ""+pick.deporte.to_s+".png", :size=> "20"%> <%= pick.evento %></td>
+                  <td><%= pick.categoria %></td>
+                  <td><%= pick.cuota%></td>
+                  <td><%= pick.stake%></td>
+                  <td><%= image_tag ""+pick.bookie.to_s+".png", :size=> "20"%></td>
+                  <td>Hace <%= time_ago_in_words(pick.pickdate) %></td>
+                </tr>
+            <% end %>
+        <% end %>
+        <tr class="titulotabla">
+          <th><%= will_paginate @tickados, :param_name => 'ticks_page'  %></th>
+
+        </tr>
+
+      </table>
+
+    </div></div>
+</div>

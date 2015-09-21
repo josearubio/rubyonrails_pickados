@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:show, :edit, :update]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user, only: [:index]
+  before_action :tipsterbought, only: [:show]
 
   def index
     @users = User.paginate(page: params[:page], :per_page => 5)
@@ -9,7 +10,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @picks = @user.picks.paginate(page: params[:page], :per_page => 6)
+    @picks = @user.picks.paginate(page: params[:picks_page], :per_page => 6)
+    @tickados = @user.picks.where("status = ?",'ticked').paginate(page: params[:ticks_page], :per_page => 20)
 
     if !params[:sport].nil?
       @picks= @user.picks.where("deporte = ?",params[:sport]).paginate(page: params[:page], :per_page => 6) if logged_in?
@@ -42,6 +44,22 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       render 'edit'
+    end
+  end
+
+  def following
+    @user = User.find(params[:id])
+    @following = @user.following.paginate(page: params[:following_page], :per_page => 10)
+    @tickados = @user.picks.where("status = ?",'ticked').paginate(page: params[:ticks_page], :per_page => 10)
+
+
+  end
+
+  def tipsterbought
+    @user = User.find(params[:id])
+    unless @user.followers.include?(current_user)
+      flash[:danger] = "No tienes permisos para seguir a este usuario. Contrátalo si así lo desea."
+      redirect_to root_path
     end
   end
 
