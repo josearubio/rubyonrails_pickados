@@ -29,16 +29,18 @@ table {
   border-spacing:  5px 15px;
 }
 
-.panel-default > .panel-heading {
+.panel-body > .panel-heading {
   color: #e3fcea;
   background-color: #048f4e;
   border-color: #dddddd;
+  border-top-width: 5px;
+  border-top-color: #ffffff;
   font-family: Lato, sans-serif;
 }
 
-.panel-default > .panel-heading > h3 {
-  margin-top: 10px;
-  margin-bottom: 5px;
+.panel-body > .panel-heading > h3 {
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
@@ -615,6 +617,8 @@ footer > .navbar-inverse {
   margin-top: 100px;
 }
 
+
+
 .margintopb {
   margin-top: 50px;
 }
@@ -681,9 +685,14 @@ p.copyright {
 }
 
 .btn-registro {
-  color: #5B9E4D;
-  background-color: #F5FFF6;
+  color: #F5FFF6;
+  background-color: #38c65b;
   border-color: #130269;
+}
+
+.btn-default:hover {
+  color: #F5FFF6;
+  background-color: #5097c6;
 }
 
 .btn-registro:hover,
@@ -691,8 +700,8 @@ p.copyright {
 .btn-registro:active,
 .btn-registro.active,
 .open .dropdown-toggle.btn-registro {
-  color: #5B9E4D;
-  background-color: #DBFFDD;
+  color: #e8ffe9;
+  background-color: #181818;
   border-color: #130269;
 }
 

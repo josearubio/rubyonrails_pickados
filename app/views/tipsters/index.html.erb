@@ -13,6 +13,7 @@
     </tr>
     <% if @ranks.any?%>
   <% @ranks.each do |rank| %>
+            <%if ispro?(rank.user) %>
           <tr class="centertd">
             <td><%= link_to gravatar_for(rank.user, size: 50), rank.user %>
               <b><span class="user"><%=rank.user.name%></span></b></td>
@@ -24,7 +25,7 @@
               <%end%></b></td>
             <td><%= link_to "Contratar", relationships_path(:followed_id => rank.user.id), method: :post, class: "btn btn-default btn-lg network-name"  %></td>
           </tr>
-
+            <% end %>
   <% end %>
     <% end %>
       </table>

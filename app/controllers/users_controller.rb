@@ -51,16 +51,22 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @following = @user.following.paginate(page: params[:following_page], :per_page => 10)
     @tickados = @user.picks.where("status = ?",'ticked').paginate(page: params[:ticks_page], :per_page => 10)
+  end
 
-
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers.paginate(page: params[:followers_page], :per_page => 10)
+    @tickados = @user.picks.where("status = ?",'ticked').paginate(page: params[:ticks_page], :per_page => 10)
   end
 
   def tipsterbought
     @user = User.find(params[:id])
+    if @user.pro == 1
     unless @user.followers.include?(current_user)
       flash[:danger] = "No tienes permisos para seguir a este usuario. Contrátalo si así lo desea."
       redirect_to root_path
     end
+      end
   end
 
   def setpro

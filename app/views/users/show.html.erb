@@ -29,9 +29,10 @@
   </aside>
   <div class="col-md-9">
 
-    <% if @user.picks.any? %>
+
         <div class="panel panel-default">
           <div class="panel-body">
+            <% if @user.picks.any? %>
             <div class="dropdown">
               <button class="btn btn-filtro dropdown-toggle" type="button" data-toggle="dropdown">Filtrar por deporte
                 <span class="caret"></span></button>
@@ -61,15 +62,21 @@
               </ul></div><br>
         <ol class="picks">
           <%= render @picks %>
-        </ol>
-            </div><%= will_paginate @picks, :param_name => 'picks_page'  %></div>
+        </ol><%= will_paginate @picks, :param_name => 'picks_page'  %>
+                <% else %>
+            No hay picks activos.
+            <% end %></div></div>
 
-    <% end %>
+
   </div>
 </div>
 <div class="row">
-  <div class="col-md-12"><h1>Histórico picks</h1></div>
+  <div class="col-md-12"></div>
   <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3>Histórico picks</h3>
+        <% if @tickados.any? %>
   <table class="table tableverde">
     <tr class="titulotabla">
       <th>Pronóstico</th>
@@ -89,7 +96,7 @@
           <td><%= pick.categoria %></td>
           <td><%= pick.cuota%></td>
           <td><%= pick.stake%></td>
-          <td><%= image_tag ""+pick.bookie.to_s+".png", :size=> "20"%></td>
+          <td><%= image_tag ""+pick.bookie.to_s+".png", :weight => "32", :height => "16"%></td>
           <td>Hace <%= time_ago_in_words(pick.pickdate) %></td>
         </tr>
             <%elsif pick.result == 'nula'%>
@@ -99,7 +106,7 @@
               <td><%= pick.categoria %></td>
               <td><%= pick.cuota%></td>
               <td><%= pick.stake%></td>
-              <td><%= image_tag ""+pick.bookie.to_s+".png", :size=> "20"%></td>
+              <td><%= image_tag ""+pick.bookie.to_s+".png", :weight => "32", :height => "16"%></td>
               <td>Hace <%= time_ago_in_words(pick.pickdate) %></td>
             </tr>
             <% else %>
@@ -110,17 +117,18 @@
               <td><%= pick.categoria %></td>
               <td><%= pick.cuota%></td>
               <td><%= pick.stake%></td>
-              <td><%= image_tag ""+pick.bookie.to_s+".png", :size=> "20"%></td>
+              <td><%= image_tag ""+pick.bookie.to_s+".png", :weight => "32", :height => "16"%></td>
               <td>Hace <%= time_ago_in_words(pick.pickdate) %></td>
             </tr>
         <% end %>
     <% end %>
-    <tr class="titulotabla">
-      <th><%= will_paginate @tickados, :param_name => 'ticks_page'  %></th>
 
-    </tr>
+    <%= will_paginate @tickados, :param_name => 'ticks_page'  %>
 
   </table>
-
+            <% else %>
+        No hay picks aún.
+            <% end %>
+</div></div>
 </div></div>
 </div>

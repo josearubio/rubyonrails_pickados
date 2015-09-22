@@ -11,16 +11,16 @@
         <%= render 'shared/error_messages', object: f.object  %>
 
         <%= f.label :name, "Nombre de Usuario" %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name,required: true  %>
 
         <%= f.label :email %>
-        <%= f.email_field :email %>
+        <%= f.email_field :email,required: true  %>
 
         <%= f.label :password , "Contraseña"%>
-        <%= f.password_field :password %>
+        <%= f.password_field :password,required: true  %>
 
         <%= f.label :password_confirmation, "Repite contraseña" %>
-        <%= f.password_field :password_confirmation %>
+        <%= f.password_field :password_confirmation,required: true  %>
 
         <%= f.submit "Crear cuenta", class: "btn btn-primary" %>
     <% end %></div></div>

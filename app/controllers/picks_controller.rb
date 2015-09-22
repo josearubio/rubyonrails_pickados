@@ -105,7 +105,7 @@ def mostrarexplicacion
 
   private
 	  def pick_params
-	    params.require(:pick).permit(:evento, :pronostico,:cuota,:deporte,:categoria,:stake,:pickdate,:explicacion)
+	    params.require(:pick).permit(:evento, :pronostico,:cuota,:deporte,:categoria,:stake,:bookie,:pickdate,:explicacion)
     end
 
   def correct_user

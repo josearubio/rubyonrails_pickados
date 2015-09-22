@@ -27,7 +27,7 @@
     <div class="col-md-2 panel panel-cuota" >
       <div class="cuota "><span style="font-size: 15px">@</span><%= pick.cuota %></div>
       <div class="stake">STK <%= pick.stake %></div>
-      <div><%= image_tag "bet365.png", :weight => "32", :height => "16"%></div>
+      <div><%= image_tag ""+pick.bookie.to_s+".png", :weight => "32", :height => "16"%></div>
     </div>
     <div class="col-md-3">
       <div id="tick_<%= pick.id %>" class="muestra" style="margin-left: 45px;">

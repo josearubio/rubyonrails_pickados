@@ -10,7 +10,7 @@ class Pick < ActiveRecord::Base
            foreign_key: "pick_id",
            dependent:   :destroy
   has_many :favby, through: :passive_favorites, source: :user
-
+  before_save   :downcase_bookie
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
 	validates :evento, presence: true ,length: { maximum: 75 }
@@ -33,6 +33,10 @@ class Pick < ActiveRecord::Base
 
   def reportpick
     update_attribute(:report, true)
+  end
+
+  def downcase_bookie
+    self.bookie = bookie.downcase
   end
 
   def favedby?(user)
