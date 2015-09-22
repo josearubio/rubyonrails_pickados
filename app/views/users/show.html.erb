@@ -10,7 +10,9 @@
     <section class="stats">
       <%= render 'shared/stats' %>
     </section></div></div>
-
+    <section class="newpick_form">
+      <%= link_to "Publicar pick", new_pick_path, class: "btn btn-lg btn-filtro" %>
+    </section>
     <section class="userstats">
       <% if @user.stats.any? %>
       <div class="panel panel-default">

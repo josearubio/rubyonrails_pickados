@@ -41,7 +41,7 @@ evento = "Valencia - Granada"
 pronostico= "Valencia 2 goles o +"
 deporte= "futbol"
 categoria= "Liga BBVA"
-bookie="bet365"
+bookie="sportium"
 cuota=1.66
 stake=5
 users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria, bookie: bookie,
@@ -61,7 +61,7 @@ evento = "GP Singapur"
 pronostico= "Gana Hamilton"
 deporte= "f1a"
 categoria= "F1 Campeonato"
-bookie="bet365"
+bookie="bwin"
 cuota=2.75
 stake=3
 users.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria, bookie: bookie,
@@ -106,7 +106,7 @@ evento = "SA Spurs - LA Lakers"
 pronostico= "Mas de 200 puntos"
 deporte= "baloncesto"
 categoria= "NBA"
-bookie="bet365"
+bookie="bwin"
 cuota=1.83
 stake=4
 usera.each { |user| user.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria, bookie: bookie,
@@ -127,7 +127,7 @@ evento = "Barça - Madrid"
 pronostico= "Messi anota 2 o + goles"
 deporte= "futbol"
 categoria= "Champions League"
-bookie="bet365"
+bookie="sportium"
 cuota=2.95
 stake=3
 userpeqe.picks.create!(evento: evento, pronostico: pronostico, cuota: cuota, stake: stake, deporte: deporte, categoria: categoria, bookie: bookie,

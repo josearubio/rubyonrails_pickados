@@ -35,7 +35,11 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <ol class="picks">
+                <% if @picks.any? %>
                 <%= render @picks %>
+                    <% else %>
+                No hay ningún pick activo marcado como favorito.
+                <%end%>
               </ol>
             </div>
           <%= will_paginate @picks %>

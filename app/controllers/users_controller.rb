@@ -61,7 +61,7 @@ class UsersController < ApplicationController
 
   def tipsterbought
     @user = User.find(params[:id])
-    if @user.pro == 1
+    if @user.pro == 1 && @user!=current_user
     unless @user.followers.include?(current_user)
       flash[:danger] = "No tienes permisos para seguir a este usuario. Contrátalo si así lo desea."
       redirect_to root_path

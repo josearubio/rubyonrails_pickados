@@ -3,7 +3,7 @@
     <div class="container fondonegrotrans">
     <div class="row margintop">
       <aside class="col-md-3 ">
-        <div class="panel panel-default margintopa">
+        <div class="panel panel-default">
           <div class="panel-body">
         <section class="user_info">
           <%= render 'shared/user_info' %>
@@ -30,8 +30,7 @@
           <% end %>
         </section>
       </aside>
-      <div class="col-md-1"></div>
-      <div class="col-md-8">
+      <div class="col-md-9">
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="dropdown">
@@ -104,15 +103,40 @@
 
       <div class="container">
         <div class="row">
-          <div class="col-lg-5 col-sm-6">
-            <hr class="section-heading-spacer">
+          <div class="col-md-4" style="text-align: center">
+            <%= image_tag "betting.png", :alt => "share", :title => "share" ,:align => "center", :class=>"img-responsive"%>
+          </div>
+          <div class="col-md-4">
+            <%= image_tag "stats.png", :alt => "share", :title => "share" ,  :class=>"img-responsive"%>
+
+          </div>
+
+          <div class="col-md-4">
+            <%= image_tag "podio.png", :alt => "share", :title => "share" , :class=>"img-responsive"%>
+
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
             <div class="clearfix"></div>
             <h2 class="section-heading">Siéntete tipster</h2>
             <p class="lead">Servicio destinado tanto como para los tipsters profesionales como para cualquier aficionado.
-            Comparte tus picks, entérate que se está apostando, sigue a los mejores.</p>
+              Comparte tus picks, entérate que se está apostando, sigue a los mejores.</p>
           </div>
-          <div class="col-lg-5 col-lg-offset-2 col-sm-6"><br><br><br>
-            <%= image_tag "betting.png", :alt => "share", :title => "share" , :class=>"img-responsive"%>
+          <div class="col-md-4">
+
+            <div class="clearfix"></div>
+            <h2 class="section-heading">Estadísticas y Rankings</h2>
+            <p class="lead">Todos los picks serán registrados para poder realizar un seguimiento de las estadísticas de usuario.
+              De esta forma podremos reconocer a los usuarios que más aciertan, y tener un marcaje de nuestras apuestas.</p>
+
+          </div>
+
+          <div class="col-md-4">
+            <div class="clearfix"></div>
+            <h2 class="section-heading">Usar Pickados premia</h2>
+            <p class="lead"> Retos, sorteos y concursos que pueden hacerte ganar mucho dinero. Desde ganar un sorteo por tener actividad
+              hasta convertirte en tipster PRO y cobrar si consigues buenos resultados al mes, y muchas promociones más.</p>
 
           </div>
         </div>
@@ -123,50 +147,6 @@
     </div>
     <!-- /.content-section-a -->
 
-    <div class="content-section-b">
-
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-            <hr class="section-heading-spacer">
-            <div class="clearfix"></div>
-            <h2 class="section-heading">Estadísticas y Rankings</h2>
-            <p class="lead">Todos los picks serán registrados para poder realizar un seguimiento de las estadísticas de usuario.
-            De esta forma podremos reconocer a los usuarios que más aciertan, y tener un marcaje de nuestras apuestas.</p>
-          </div>
-          <div class="col-lg-5 col-sm-pull-6  col-sm-6"><br><br>
-            <%= image_tag "stats.png", :alt => "share", :title => "share" , :class=>"img-responsive"%>
-          </div>
-        </div>
-
-      </div>
-      <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-b -->
-
-    <div class="content-section-a">
-
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-5 col-sm-6">
-            <hr class="section-heading-spacer">
-            <div class="clearfix"></div>
-            <h2 class="section-heading">Usar Pickados tiene su premio</h2>
-            <p class="lead"> Retos, sorteos y concursos que pueden hacerte ganar mucho dinero. Desde ganar un sorteo por tener actividad
-            hasta convertirte en tipster PRO y cobrar si consigues buenos resultados al mes, y muchas promociones más.</p>
-          </div>
-          <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-            <%= image_tag "podio.png", :alt => "share", :title => "share" , :class=>"img-responsive"%>
-          </div>
-        </div>
-
-      </div>
-      <!-- /.container -->
-
-    </div>
     <!-- /.content-section-a -->
 
     <a  name="contact"></a>

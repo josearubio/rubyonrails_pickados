@@ -1,23 +1,27 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
+<div class="panel panel-default">
+  <div class="panel-body">
 <%= will_paginate %>
 <ul class="users">
   <% @users.each do |user| %>
-      <li>
+      <div class="row margintopsmall">
+        <div class="col-md-5">
         <%= gravatar_for user, size: 50 %>
         <%= link_to user.name, user %>
+        <% if ispro?(user) %>
+                <%= image_tag "pro.png", :alt => "share", :title => "share" , :width=>"20",:height=>"13" %>
+            <% end %>
+        </div>
+        <div class="col-md-3">
         <%= link_to "Hacer PRO", userpro_path(id: user.id), method: :post %>
+        </div>
+      </div>
 
-      </li>
-      <% if ispro?(user) %>
-          PRO
-          <%else%>
-      FREE
-      <% end %>
 
   <% end %>
 
 </ul>
 
-<%= will_paginate %>
+<%= will_paginate %></div></div>
