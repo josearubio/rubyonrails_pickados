@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @picks = @user.picks.paginate(page: params[:picks_page], :per_page => 6)
+    @picks = @user.picks.where("status = ?",'unstarted').paginate(page: params[:picks_page], :per_page => 6)
     @tickados = @user.picks.where("status = ?",'ticked').paginate(page: params[:ticks_page], :per_page => 20)
 
     if !params[:sport].nil?
