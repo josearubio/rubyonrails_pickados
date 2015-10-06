@@ -48,7 +48,7 @@ Bugtracker.create!(usuario: "Jose Antonio Rubio",
                    solucion: "")
 
 bug = Bugtracker.all
-buga = bug[1]
+buga = bug[0]
 
 buga.comments.create!(usuario: "pepito", comentario: "A mi me pasa cuando mantengo las cookies en el navegador.")
 

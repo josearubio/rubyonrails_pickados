@@ -7,6 +7,8 @@
   <div class="panel-body">
     <div class="panel-heading paneltitulo"><h3>Listado de fallos reportados</h3></div><br>
 <ul class="users">
+  <%= link_to "Reportar bug", newbugtracker_path, class: "btn btn-lg btn-filtro" %>
+  <hr>
   <% @bugs.each do |bug| %>
       <div class="row margintopsmall">
         <div class="col-md-3">

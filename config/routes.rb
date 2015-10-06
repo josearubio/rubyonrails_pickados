@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'bugtracking/new'
+  get 'bugtracking/new', as: :newbugtracker
 
   get 'bugtracking/index'
 
