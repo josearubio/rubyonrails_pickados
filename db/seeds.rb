@@ -29,6 +29,29 @@ User.create!(name:  "Radokiano",
              activated: true,
              activated_at: Time.zone.now,pro: 1)
 
+Bugtracker.create!(usuario: "Jose Antonio Rubio",
+                                gravedad: "Grave",
+                                titulo: "No puedo modificar mi contraseña",
+                                explicacion: "Al acceder al panel de editar puedo modificar cualquier campo menos el de nueva contraseña",
+                                categoria: "Funcionalidad",
+                                estado: "Reportado",
+                                programador: "Antonio Corbi",
+                                solucion: "")
+
+Bugtracker.create!(usuario: "Jose Antonio Rubio",
+                   gravedad: "Leve",
+                   titulo: "Error de ortografía en timeline",
+                   explicacion: "En vez de publicado pone puvlicado con v",
+                   categoria: "Estilo",
+                   estado: "Solucionado",
+                   programador: "Antonio Corbi",
+                   solucion: "")
+
+bug = Bugtracker.all
+buga = bug[1]
+
+buga.comments.create!(usuario: "pepito", comentario: "A mi me pasa cuando mantengo las cookies en el navegador.")
+
 users = User.order(:created_at).take(8)
 usera= users[0..2]
 userb=users[3..7]

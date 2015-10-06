@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'bugtracking/new'
+
+  get 'bugtracking/index'
+
+  post 'createbug' => 'bugtracking#create', as: :bugtrackers
+
+  post 'addcomment' => 'bugtracking#addcomment', as: :comments
+
   get 'tipsters/index', as: :tipster
 
   get 'ranking/index', as: :ranking

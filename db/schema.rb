@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916121829) do
+ActiveRecord::Schema.define(version: 20151005212506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bugtrackers", force: true do |t|
+    t.string   "usuario"
+    t.string   "gravedad"
+    t.string   "titulo"
+    t.string   "explicacion"
+    t.string   "categoria"
+    t.string   "estado"
+    t.string   "programador"
+    t.string   "solucion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "combinadas", id: false, force: true do |t|
+    t.integer "pick_a", null: false
+    t.integer "pick_b", null: false
+  end
+
+  create_table "comments", force: true do |t|
+    t.string   "usuario"
+    t.string   "comentario"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "bugtracker_id"
+  end
+
+  add_index "comments", ["bugtracker_id", "created_at"], name: "index_comments_on_bugtracker_id_and_created_at", using: :btree
+  add_index "comments", ["bugtracker_id"], name: "index_comments_on_bugtracker_id", using: :btree
 
   create_table "favorites", force: true do |t|
     t.integer  "pick_id"
@@ -43,6 +72,7 @@ ActiveRecord::Schema.define(version: 20150916121829) do
     t.datetime "pickdate"
     t.boolean  "report",      default: false
     t.string   "bookie"
+    t.integer  "comb",        default: 0
   end
 
   add_index "picks", ["user_id", "created_at"], name: "index_picks_on_user_id_and_created_at", using: :btree

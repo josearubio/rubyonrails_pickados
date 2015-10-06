@@ -10,6 +10,15 @@ class Pick < ActiveRecord::Base
            foreign_key: "pick_id",
            dependent:   :destroy
   has_many :favby, through: :passive_favorites, source: :user
+
+  has_and_belongs_to_many(:combinada,
+                          :join_table => "combinadas",
+                          :foreign_key => "pick_a",
+                          :association_foreign_key => "pick_b")
+
+  has_and_belongs_to_many :combinada, :join_table => :combinadas, :foreign_key => "pick_a", :association_foreign_key => "pick_b"
+
+
   before_save   :downcase_bookie
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true

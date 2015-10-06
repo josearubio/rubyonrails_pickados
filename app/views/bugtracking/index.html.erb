@@ -1,0 +1,60 @@
+<% provide(:title, 'Bugtracking') %>
+<div class="container fondonegrotrans">
+  <div class="row margintop">
+
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="panel-heading paneltitulo"><h3>Listado de fallos reportados</h3></div><br>
+<ul class="users">
+  <% @bugs.each do |bug| %>
+      <div class="row margintopsmall">
+        <div class="col-md-3">
+        Usuario que reporta: <br><span style="color:#130269"><%= bug.usuario%></span>
+        </div>
+        <div class="col-md-5">
+        <b><%= bug.titulo%></b><br>
+          <%= bug.explicacion%>
+        </div>
+        <div class="col-md-3">
+          Reportado el:
+          <b><%= l(bug.created_at, format: :shortcustom)%></b><br>
+          Categoria: <b><%=bug.categoria%></b><br>
+          Estado: <b><%if bug.estado=="Reportado"%><span style="color:#730E15">Pendiente de revisión.</span>
+          <%else%>
+              <span style="color:#154b22">Solucionado</span>
+          <%end%></b><br>
+          Programador asignado: <span style="color:#ec971f"><%= bug.programador%></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-5"><hr>
+          <h4>Añade comentario:</h4>
+          <%= bootstrap_form_for(@comment) do |f| %>
+              <%= f.text_field :usuario, placeholder: "Aquí tu nombre",required: true  %>
+              <%= f.text_area :comentario, placeholder: "Aquí tu comentario" ,required: true   %>
+              <%= hidden_field_tag :bug_id, bug.id %>
+              <p>
+                <%= f.submit "Añadir comentario", :class => "btn btn-success" %>
+              </p>
+          <%end%>
+          <hr>
+          <%if bug.comments.any? %><h3>Comentarios:</h3><%end%>
+          <% bug.comments.each do |com| %>
+              <div class="panel panel-default">
+                <div class="panel-body">
+          <div><%=com.comentario%><br><i>Publicado por: <b><%=com.usuario%></b> el <%= l(com.created_at, format: :shortcustom)%></i></div></div></div>
+          <%end%>
+        </div>
+        <div class="col-md-1">
+        </div>
+      </div>
+<hr>
+
+  <% end %>
+
+</ul>
+
+<%= will_paginate @bugs%></div></div></div></div>

@@ -1,0 +1,31 @@
+<%= bootstrap_form_for(@bug) do |f| %>
+
+    <% if @bug.errors.any? %>
+
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@bug.errors.count, "error") %> prohibited
+            this pick from being saved:
+          </h2>
+          <ul>
+            <% @bug.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+
+    <br>
+    <%= f.text_field :usuario, label: "Usuario",placeholder: "Usuario que registra el error.",required: true  %>
+    <%= f.select :categoria, options_for_select(["Estilo","Funcionalidad","Otros"])%>
+    <%= f.text_field :titulo, label: "Título", placeholder: "Descripción corta del error."%>
+    <%= f.text_area :explicacion, label: "Descripción del error", placeholder: "Explicacion del error, como sucede y donde.", maxlenght: "1000"%>
+
+
+
+    <p>
+      <%= f.submit "Registrar", :class => "btn btn-success" %>
+    </p>
+
+<% end %>
