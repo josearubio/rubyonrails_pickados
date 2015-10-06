@@ -13,9 +13,10 @@ class StaticPagesController < ApplicationController
 
   def index
     @pick = current_user.picks.build if logged_in?
-    @picks= Pick.all.where("status = ?",'unstarted').paginate(page: params[:todos_page], :per_page => 15) if logged_in?
+    @picks= Pick.all.where("status = ? and pickdate > ?",'unstarted',Time.now).paginate(page: params[:todos_page], :per_page => 15) if logged_in?
     @verdes=Pick.where("result = ?",'ok').paginate(page: params[:verdes_page], :per_page => 3)
     @favs=Pick.joins(:passive_favorites).select('picks.*, count(pick_id) as "pick_count"').group("picks.id").where("status = ?",'unstarted').order(' pick_count desc')
+
 
     if !params[:sport].nil?
       if params[:sport]!='todos'
