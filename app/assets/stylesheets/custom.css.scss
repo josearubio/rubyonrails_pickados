@@ -4,16 +4,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@font-face{
+  font-family: ‘Sintony’;
+  src: url('//fonts/Sintony-Regular.otf');
+}
+
 body {
   //background-color: #f5f5f5;
   background: url(fondogris.jpg) center center;
 
 }
+
+
 html,
 body {
   margin: 0;
   padding: 0;
-  font-family: Lato,"helvetica neue",helvetica,sans-serif;
+ //font-family: Lato,"helvetica neue",helvetica,sans-serif;
+font-family: 'Sintony';
 }
 
 footer > .navbar {
