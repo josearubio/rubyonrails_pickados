@@ -1,3 +1,4 @@
-<%= link_to gravatar_for(@user, size: 50), @user %>
+
+<li class="round-image-50"><%= image_tag(@user.avatar.url(:thumb)) %></li>
 <h1><%= @user.name %></h1>
 <span><%= pluralize(@user.picks.count, "pick") %></span>

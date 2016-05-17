@@ -6,6 +6,11 @@
     <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages', object: f.object  %>
 
+
+        <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
+        <%= f.file_field :avatar %>
+
+
         <%= f.label :name, "Nombre" %>
         <%= f.text_field :name, class: 'form-control' %>
 

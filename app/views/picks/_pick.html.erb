@@ -1,5 +1,6 @@
 <li class="marginleftpick" id="pick-<%= pick.id %>">
-  <%= link_to gravatar_for(pick.user, size: 50), pick.user %>
+  <%#= link_to gravatar_for(pick.user, size: 50), pick.user %>
+<li class="round-image-50"><%= image_tag(@user.avatar.url(:thumb)) %></li>
   <span class="user"><%= link_to pick.user.name, pick.user %></span>
   <% if pick.user.pro == 1%>
   <%= image_tag "pro.png", :alt => "share", :title => "share" , :width=>"20",:height=>"13" %>

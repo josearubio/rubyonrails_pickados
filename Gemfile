@@ -15,6 +15,12 @@ gem 'bootstrap-sass', '3.2.0.0'
 gem 'bootstrap_form'
 gem 'tlsmail'
 
+# Use paperclip to upload files
+gem 'paperclip', '~> 3.5.4'
+
+# use babosa for url normalize
+gem 'babosa'
+
 # Use SCSS for stylesheets
 
 gem 'sass-rails', '~> 4.0.3'

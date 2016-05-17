@@ -36,6 +36,7 @@ Rails.application.configure do
       password: "jaropickados93"
   }
 
+  Paperclip.options[:command_path] = 'C:\Program Files\ImageMagick-7.0.1-Q16;C:\Program Files (x86)\GnuWin32\bin'
 
 =begin
   ActionMailer::Base.delivery_method = :smtp
