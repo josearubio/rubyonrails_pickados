@@ -11,12 +11,11 @@ class Pick < ActiveRecord::Base
            dependent:   :destroy
   has_many :favby, through: :passive_favorites, source: :user
 
-  has_and_belongs_to_many(:combinada,
+  has_and_belongs_to_many(:picks,
                           :join_table => "combinadas",
                           :foreign_key => "pick_a",
                           :association_foreign_key => "pick_b")
 
-  has_and_belongs_to_many :combinada, :join_table => :combinadas, :foreign_key => "pick_a", :association_foreign_key => "pick_b"
 
 
   before_save   :downcase_bookie
@@ -40,12 +39,28 @@ class Pick < ActiveRecord::Base
     update_attribute(:result, result)
   end
 
+  def setcomb(tf)
+    update_attribute(:comb,tf)
+  end
+
+  def setshow(tf)
+    update_attribute(:show,tf)
+  end
+
   def reportpick
     update_attribute(:report, true)
   end
 
   def downcase_bookie
     self.bookie = bookie.downcase
+  end
+
+  def addpick(pick)
+    cuot = self.cuota * pick.cuota
+    update_attribute(:cuota, cuot)
+    pick.setshow(false)
+    setcomb(true)
+    self.picks << pick
   end
 
   def favedby?(user)

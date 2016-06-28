@@ -72,7 +72,8 @@ ActiveRecord::Schema.define(version: 20160516205131) do
     t.datetime "pickdate"
     t.boolean  "report",      default: false
     t.string   "bookie"
-    t.integer  "comb",        default: 0
+    t.boolean  "show",        default: true
+    t.boolean  "comb",        default: false
   end
 
   add_index "picks", ["user_id", "created_at"], name: "index_picks_on_user_id_and_created_at", using: :btree

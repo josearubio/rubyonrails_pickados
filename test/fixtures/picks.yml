@@ -11,6 +11,7 @@ one:
   created_at: <%= 2.hours.ago %>
   status: ticked
   result: ok
+  pickdate: 2016-08-31 20:00
   user: prueba
 
 onea:
@@ -24,6 +25,7 @@ onea:
   created_at: <%= 2.hours.ago %>
   status: ticked
   result: fail
+  pickdate: 2016-08-31 20:00
   user: prueba
 
 two:
@@ -35,6 +37,7 @@ two:
   stake: 2
   explicacion: Mercedes sigue dominando pero mañana Vettel sale segundo y se pronóstica lluvia, todo puede pasar.
   created_at: <%= 10.minutes.ago %>
+  pickdate: 2016-08-31 20:00
   user: segundo
 
 <% 30.times do |n| %>
@@ -48,6 +51,7 @@ pick_<%= n %>:
   stake: 2
   explicacion: Madrid viene en una racha impresionante y el Elche es el equipo más goleado.
   created_at: <%= 42.days.ago %>
+  pickdate: 2016-08-31 20:00
   user: prueba
 <% end %>
 
@@ -57,5 +61,6 @@ pick_<%= n %>:
   deporte: Futbol
   pronostico: +2.5 goles
   created_at: <%= 42.days.ago %>
+  pickdate: 2016-08-31 20:00
   user: tercero
 <% end %>

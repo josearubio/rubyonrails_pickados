@@ -5,14 +5,41 @@ class PickTest < ActiveSupport::TestCase
     @user = users(:prueba)
 
     @pick = @user.picks.build(evento: "Madrid-Barcelona",pronostico: "Gana Barcelona",categoria: "LIGA", deporte:"futbol",
-                              cuota: 2, stake: 3, pickdate:"2015-08-31 20:00")
+                              cuota: 2, stake: 3, pickdate:"2015-08-31 20:00",bookie: "bet365")
+    @pick2 = @user.picks.build(evento: "Paco-Paco",pronostico: "Gana Paco",categoria: "LIGA", deporte:"futbol",
+                              cuota: 2, stake: 3, pickdate:"2015-08-31 20:00",bookie: "bet365")
+    @pick3 = @user.picks.build(evento: "Paco-Paaaaa",pronostico: "Gana Pacaaaaaao",categoria: "LIGA", deporte:"futbol",
+                               cuota: 2, stake: 3, pickdate:"2015-08-31 20:00",bookie: "bet365")
     @user = User.new(name: "Example User", email: "user@example.com",
                      password: "foobar", password_confirmation: "foobar")
   end
 
   test "should be valid and date" do
     assert @pick.valid?
-    assert "Agosto", @pick.pickdate.strftime("%B")
+    assert "August", @pick.pickdate.strftime("%B")
+  end
+
+  test "combinadas" do
+    assert_not @pick.picks.include?(@pick2)
+    @pick.save
+    assert_equal(2,@pick.cuota)
+    @pick.addpick(@pick2)
+    assert @pick.picks.include?(@pick2)
+    @pick.addpick(@pick3)
+    assert @pick.picks.include?(@pick3)
+    #pick.picks.delete(Pick.find @pick2.id) #TAMBIEN @pick.picks.delete(@pick2)
+    #@pick.picks.delete(@pick2)
+    #assert_not @pick.picks.include?(@pick2)
+    #assert @pick.picks.include?(@pick3)
+    assert @pick.comb
+    assert_not @pick3.show
+
+    #COMPROBAMOS CUOTA MODIFICADA
+
+    assert_equal(8,@pick.cuota)
+
+
+
   end
 
   test "user id should be present" do
@@ -42,7 +69,7 @@ class PickTest < ActiveSupport::TestCase
   test "associated picks should be destroyed" do
     @user.save
     @user.picks.create!(evento: "Madrid-Barcelona",pronostico: "Gana Barcelona",categoria: "LIGA", deporte:"futbol",
-                        cuota: 2, stake: 3, pickdate:"2015-08-31 20:00")
+                        cuota: 2, stake: 3, pickdate:"2015-08-31 20:00",bookie: "Bet365")
     assert_difference 'Pick.count', -1 do
       @user.destroy
     end

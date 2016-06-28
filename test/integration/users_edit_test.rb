@@ -20,7 +20,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   test "set pro" do
     assert_equal 0,@user.pro
     post userpro_path, id: @user.id
-    assert_equal 1, @user.pro
+    assert_equal 1, @user.pro #SERA PORQUE TENGO QUE LOGUEARME COMO ADMIN?
   end
 
   test "successful edit" do
